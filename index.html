@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>GM Web Studio | Websites, E-Commerce & AI Automation</title>
 
   <meta
     name="description"
     content="GM Web Studio builds modern websites, e-commerce experiences and practical AI automation systems for growing businesses."
-  />
+  >
 
-  <meta name="theme-color" content="#f6f7fb" />
+  <meta name="robots" content="index, follow">
 
   <style>
     :root {
       --bg: #f6f7fb;
       --surface: #ffffff;
       --surface-soft: #f0f2f8;
-
       --text: #11131a;
       --muted: #697181;
-
       --border: #e4e7ef;
 
       --blue: #4169ff;
@@ -29,16 +27,16 @@
       --purple: #805cff;
 
       --dark: #0e1016;
-      --dark-soft: #171a22;
+      --dark-2: #171a23;
 
-      --shadow-sm: 0 10px 30px rgba(17, 19, 26, 0.06);
-      --shadow-md: 0 20px 60px rgba(17, 19, 26, 0.10);
+      --shadow-sm: 0 8px 24px rgba(17, 19, 26, 0.06);
+      --shadow-md: 0 20px 50px rgba(17, 19, 26, 0.09);
+      --shadow-lg: 0 30px 80px rgba(17, 19, 26, 0.14);
 
-      --radius-sm: 12px;
-      --radius-md: 18px;
-      --radius-lg: 28px;
-
-      --max: 1180px;
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 30px;
+      --radius-xl: 38px;
     }
 
     * {
@@ -66,10 +64,6 @@
       overflow-x: hidden;
     }
 
-    body.modal-open {
-      overflow: hidden;
-    }
-
     a {
       color: inherit;
       text-decoration: none;
@@ -83,7 +77,7 @@
     }
 
     button {
-      border: 0;
+      cursor: pointer;
     }
 
     img {
@@ -92,51 +86,8 @@
     }
 
     .container {
-      width: min(var(--max), calc(100% - 40px));
+      width: min(1160px, calc(100% - 40px));
       margin: 0 auto;
-    }
-
-    .section {
-      padding: 110px 0;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue);
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--blue);
-      box-shadow: 0 0 0 5px rgba(65, 105, 255, 0.10);
-    }
-
-    .section-heading {
-      max-width: 720px;
-      margin-bottom: 52px;
-    }
-
-    .section-heading h2 {
-      margin-top: 16px;
-      font-size: clamp(2.3rem, 5vw, 4.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.045em;
-    }
-
-    .section-heading p {
-      margin-top: 18px;
-      color: var(--muted);
-      max-width: 620px;
-      font-size: 1rem;
     }
 
     /* =========================
@@ -147,80 +98,91 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: 16px 0;
-      background: rgba(246, 247, 251, 0.76);
+      background: rgba(246, 247, 251, 0.82);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(228, 231, 239, 0.8);
+      border-bottom: 1px solid rgba(228, 231, 239, 0.75);
     }
 
     .nav {
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
     }
 
     .logo {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 900;
+      gap: 11px;
+      font-weight: 800;
       letter-spacing: -0.04em;
-      font-size: 1.05rem;
     }
 
     .logo-mark {
-      width: 35px;
-      height: 35px;
-      border-radius: 11px;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
       display: grid;
       place-items: center;
       color: white;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      box-shadow: 0 10px 25px rgba(65, 105, 255, 0.25);
-      font-size: 0.78rem;
+      font-size: 14px;
+      font-weight: 900;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+      box-shadow: 0 8px 20px rgba(65, 105, 255, 0.24);
+    }
+
+    .logo-text {
+      font-size: 17px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 30px;
+      color: #555d6d;
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .nav-links a {
-      color: #555d6d;
-      font-size: 0.84rem;
-      font-weight: 650;
-      transition: 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--text);
+      color: var(--blue);
     }
 
     .nav-cta {
-      padding: 11px 16px;
-      border-radius: 11px;
-      background: var(--text);
+      padding: 11px 17px;
+      border-radius: 12px;
       color: white !important;
-      box-shadow: var(--shadow-sm);
+      background: var(--text);
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
     }
 
     .nav-cta:hover {
-      transform: translateY(-1px);
-      background: #000;
+      color: white;
+      background: var(--blue);
+      transform: translateY(-2px);
     }
 
-    .menu-toggle {
+    .menu-btn {
       display: none;
       width: 42px;
       height: 42px;
-      border-radius: 12px;
-      background: var(--surface);
       border: 1px solid var(--border);
-      cursor: pointer;
-      font-size: 1.15rem;
+      border-radius: 12px;
+      background: white;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
     }
 
     /* =========================
@@ -228,23 +190,24 @@
     ========================= */
 
     .hero {
-      padding: 90px 0 80px;
       position: relative;
+      padding: 105px 0 90px;
       overflow: hidden;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      width: 600px;
-      height: 600px;
-      right: -240px;
-      top: -240px;
-      background: radial-gradient(
-        circle,
-        rgba(128, 92, 255, 0.13),
-        transparent 65%
-      );
+      width: 650px;
+      height: 650px;
+      right: -250px;
+      top: -220px;
+      background:
+        radial-gradient(
+          circle,
+          rgba(65, 105, 255, 0.16),
+          transparent 68%
+        );
       pointer-events: none;
     }
 
@@ -254,35 +217,59 @@
       width: 500px;
       height: 500px;
       left: -260px;
-      bottom: -300px;
-      background: radial-gradient(
-        circle,
-        rgba(65, 105, 255, 0.10),
-        transparent 65%
-      );
+      bottom: -280px;
+      background:
+        radial-gradient(
+          circle,
+          rgba(128, 92, 255, 0.12),
+          transparent 68%
+        );
       pointer-events: none;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 70px;
-      align-items: center;
       position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 70px;
+      align-items: center;
     }
 
-    .hero-copy h1 {
-      margin-top: 20px;
-      max-width: 680px;
-      font-size: clamp(3.5rem, 7vw, 6.5rem);
-      line-height: 0.91;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid #dce1ef;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: #596174;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(65, 105, 255, 0.09);
+    }
+
+    .hero h1 {
+      max-width: 650px;
+      font-size: clamp(48px, 6vw, 76px);
+      line-height: 0.98;
       letter-spacing: -0.065em;
+      font-weight: 850;
+      margin-bottom: 25px;
     }
 
-    .gradient-text {
+    .hero h1 span {
       background: linear-gradient(
-        135deg,
+        100deg,
         var(--blue),
         var(--purple)
       );
@@ -291,216 +278,262 @@
       color: transparent;
     }
 
-    .hero-copy p {
-      margin-top: 26px;
-      max-width: 590px;
+    .hero-copy {
+      max-width: 600px;
       color: var(--muted);
-      font-size: 1.04rem;
+      font-size: 18px;
+      line-height: 1.75;
+      margin-bottom: 30px;
     }
 
-    .hero-buttons {
+    .hero-actions {
       display: flex;
+      align-items: center;
+      gap: 13px;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      padding: 14px 19px;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 19px;
       border-radius: 13px;
-      font-size: 0.83rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: 0.22s ease;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 750;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
       color: white;
-      background: linear-gradient(
-        135deg,
-        var(--blue),
-        var(--purple)
-      );
-      box-shadow: 0 14px 30px rgba(65, 105, 255, 0.22);
+      background: var(--text);
+      box-shadow: 0 12px 28px rgba(17, 19, 26, 0.14);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 35px rgba(65, 105, 255, 0.28);
+      background: var(--blue);
+      box-shadow: 0 14px 32px rgba(65, 105, 255, 0.24);
     }
 
     .btn-secondary {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: white;
+      border-color: var(--border);
       color: var(--text);
     }
 
     .btn-secondary:hover {
-      transform: translateY(-2px);
-      border-color: #ccd1dd;
+      border-color: #cbd2e2;
+      background: #fafbfe;
     }
 
     .hero-note {
-      margin-top: 18px;
-      font-size: 0.76rem;
-      color: #858c9a;
+      margin-top: 19px;
+      color: #818897;
+      font-size: 12px;
     }
 
     /* =========================
        SYSTEM VISUAL
     ========================= */
 
-    .system-visual {
+    .system-wrap {
       position: relative;
-      min-height: 500px;
-      border-radius: 32px;
-      padding: 28px;
+    }
+
+    .system-card {
+      position: relative;
+      min-height: 490px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.75);
+      border-radius: var(--radius-xl);
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,0.96),
-          rgba(241,243,250,0.88)
+          rgba(255,255,255,0.88),
+          rgba(239,242,250,0.78)
         );
-      border: 1px solid rgba(255,255,255,0.9);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-lg);
       overflow: hidden;
     }
 
-    .system-visual::before {
+    .system-card::before {
       content: "";
       position: absolute;
-      width: 300px;
-      height: 300px;
+      width: 330px;
+      height: 330px;
+      right: -120px;
+      top: -120px;
       background: radial-gradient(
         circle,
-        rgba(65,105,255,0.16),
-        transparent 65%
+        rgba(65, 105, 255, 0.24),
+        transparent 70%
       );
-      top: -130px;
-      right: -80px;
     }
 
-    .system-visual::after {
-      content: "";
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(
-        circle,
-        rgba(128,92,255,0.12),
-        transparent 65%
-      );
-      bottom: -130px;
-      left: -80px;
-    }
-
-    .visual-top {
+    .system-top {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
-      z-index: 2;
+      margin-bottom: 30px;
     }
 
-    .visual-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
+    .system-title {
+      font-size: 13px;
       font-weight: 800;
-      color: #747c8b;
+      letter-spacing: 0.01em;
     }
 
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 10px;
+    .system-status {
+      padding: 6px 9px;
       border-radius: 999px;
-      background: #fff;
-      border: 1px solid var(--border);
-      font-size: 0.67rem;
-      font-weight: 750;
-      color: #566070;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #43c781;
-      box-shadow: 0 0 0 4px rgba(67,199,129,0.10);
+      background: #eaf0ff;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
     }
 
     .workflow {
       position: relative;
       z-index: 2;
-      margin-top: 50px;
-      display: grid;
-      gap: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    .workflow-card {
+    .workflow-line {
+      position: absolute;
+      left: 21px;
+      top: 29px;
+      bottom: 29px;
+      width: 1px;
+      background: linear-gradient(
+        var(--blue),
+        var(--purple)
+      );
+      opacity: 0.25;
+    }
+
+    .workflow-item {
       position: relative;
-      padding: 18px;
+      display: grid;
+      grid-template-columns: 43px 1fr;
+      gap: 15px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid rgba(222, 226, 237, 0.85);
       border-radius: 17px;
-      background: rgba(255,255,255,0.76);
-      border: 1px solid rgba(228,231,239,0.9);
-      box-shadow: 0 10px 30px rgba(17,19,26,0.05);
+      background: rgba(255,255,255,0.72);
       backdrop-filter: blur(10px);
     }
 
-    .workflow-card::after {
-      content: "";
-      position: absolute;
-      width: 1px;
-      height: 15px;
-      background: #d9ddea;
-      left: 27px;
-      bottom: -15px;
-    }
-
-    .workflow-card:last-child::after {
-      display: none;
-    }
-
     .workflow-number {
-      font-size: 0.66rem;
-      font-weight: 900;
-      color: var(--blue);
-      letter-spacing: 0.08em;
-    }
-
-    .workflow-card h3 {
-      margin-top: 4px;
-      font-size: 0.96rem;
-    }
-
-    .workflow-card p {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 0.72rem;
-    }
-
-    .visual-badges {
-      position: absolute;
-      left: 28px;
-      bottom: 28px;
-      display: flex;
-      gap: 8px;
-      z-index: 3;
-    }
-
-    .visual-badge {
-      padding: 8px 11px;
-      border-radius: 9px;
-      background: var(--dark);
+      position: relative;
+      z-index: 2;
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
       color: white;
-      font-size: 0.65rem;
+      font-size: 11px;
+      font-weight: 850;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+      box-shadow: 0 8px 20px rgba(65,105,255,0.18);
+    }
+
+    .workflow-item strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .workflow-item span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .floating-badge {
+      position: absolute;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 14px;
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 13px;
+      background: rgba(255,255,255,0.88);
+      box-shadow: var(--shadow-md);
+      font-size: 11px;
       font-weight: 800;
+      backdrop-filter: blur(12px);
+    }
+
+    .floating-badge.one {
+      left: -25px;
+      top: 105px;
+    }
+
+    .floating-badge.two {
+      right: -25px;
+      bottom: 75px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    /* =========================
+       SECTION BASICS
+    ========================= */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(34px, 4vw, 53px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: 16px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
     }
 
     /* =========================
@@ -508,27 +541,23 @@
     ========================= */
 
     .capabilities {
+      padding: 25px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: rgba(255,255,255,0.55);
     }
 
     .capability-row {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .capability {
-      padding: 24px 16px;
-      text-align: center;
-      color: #5e6676;
-      font-size: 0.75rem;
-      font-weight: 800;
-      border-right: 1px solid var(--border);
-    }
-
-    .capability:last-child {
-      border-right: 0;
+      color: #777f8e;
+      font-size: 13px;
+      font-weight: 750;
     }
 
     /* =========================
@@ -542,54 +571,55 @@
     }
 
     .service-card {
-      padding: 30px;
-      min-height: 320px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      transition: 0.25s ease;
       position: relative;
+      padding: 29px;
+      min-height: 330px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
       overflow: hidden;
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       box-shadow: var(--shadow-md);
-      border-color: #d8dce7;
+      border-color: #d6dbea;
+    }
+
+    .service-number {
+      color: #9aa1af;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 50px;
     }
 
     .service-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
+      border-radius: 14px;
+      margin-bottom: 22px;
       color: var(--blue);
-      background: #eef1ff;
+      background: #edf1ff;
       font-weight: 900;
-      font-size: 1.1rem;
     }
 
     .service-card h3 {
-      margin-top: 70px;
-      font-size: 1.25rem;
+      font-size: 21px;
       letter-spacing: -0.03em;
+      margin-bottom: 11px;
     }
 
     .service-card p {
-      margin-top: 10px;
       color: var(--muted);
-      font-size: 0.87rem;
-    }
-
-    .service-link {
-      position: absolute;
-      left: 30px;
-      bottom: 28px;
-      color: var(--blue);
-      font-size: 0.76rem;
-      font-weight: 800;
+      font-size: 14px;
+      line-height: 1.75;
     }
 
     /* =========================
@@ -599,22 +629,6 @@
     .ai-section {
       background: var(--dark);
       color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ai-section::before {
-      content: "";
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      right: -220px;
-      top: -220px;
-      background: radial-gradient(
-        circle,
-        rgba(65,105,255,0.22),
-        transparent 65%
-      );
     }
 
     .ai-grid {
@@ -622,94 +636,128 @@
       grid-template-columns: 0.9fr 1.1fr;
       gap: 70px;
       align-items: center;
-      position: relative;
-      z-index: 2;
     }
 
-    .ai-copy h2 {
-      margin-top: 17px;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height: 0.98;
+    .ai-section .section-label {
+      color: #8ca4ff;
+    }
+
+    .ai-section h2 {
+      font-size: clamp(36px, 4vw, 55px);
+      line-height: 1.03;
       letter-spacing: -0.05em;
+      margin-bottom: 19px;
     }
 
-    .ai-copy p {
-      margin-top: 22px;
-      color: #a9afbd;
-      max-width: 550px;
+    .ai-copy {
+      color: #9da4b4;
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 28px;
     }
 
     .ai-list {
-      margin-top: 30px;
       display: grid;
-      gap: 12px;
+      gap: 13px;
     }
 
     .ai-list-item {
       display: flex;
       align-items: center;
       gap: 11px;
-      color: #dfe2e9;
-      font-size: 0.84rem;
+      color: #d9deea;
+      font-size: 14px;
     }
 
-    .ai-list-item span {
-      width: 20px;
-      height: 20px;
+    .check {
+      width: 21px;
+      height: 21px;
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: rgba(65,105,255,0.18);
-      color: #91a6ff;
-      font-size: 0.65rem;
+      color: white;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+      font-size: 10px;
+      font-weight: 900;
+      flex-shrink: 0;
     }
 
     .ai-workflow {
-      padding: 30px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.045);
+      padding: 28px;
       border: 1px solid rgba(255,255,255,0.09);
-      backdrop-filter: blur(12px);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.065),
+          rgba(255,255,255,0.025)
+        );
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
     }
 
-    .ai-window-top {
+    .ai-window {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 19px;
+      overflow: hidden;
+      background: #11141c;
+    }
+
+    .window-bar {
       display: flex;
+      align-items: center;
       gap: 6px;
-      margin-bottom: 25px;
+      padding: 13px 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
-    .ai-window-dot {
-      width: 8px;
-      height: 8px;
+    .window-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: #626877;
+      background: #555b68;
     }
 
-    .ai-flow {
+    .window-title {
+      margin-left: 8px;
+      color: #707888;
+      font-size: 10px;
+    }
+
+    .automation-flow {
+      padding: 22px;
       display: grid;
       gap: 10px;
     }
 
-    .ai-flow-card {
-      padding: 16px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(255,255,255,0.07);
+    .automation-node {
+      padding: 15px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 13px;
+      background: rgba(255,255,255,0.035);
     }
 
-    .ai-flow-card small {
+    .automation-node small {
       display: block;
-      color: #7f8797;
-      font-size: 0.63rem;
+      color: #747c8e;
+      font-size: 9px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-weight: 800;
+      margin-bottom: 5px;
     }
 
-    .ai-flow-card strong {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.83rem;
+    .automation-node strong {
+      color: #e7eaf1;
+      font-size: 12px;
+    }
+
+    .automation-arrow {
+      text-align: center;
+      color: #586070;
+      font-size: 13px;
     }
 
     /* =========================
@@ -717,132 +765,127 @@
     ========================= */
 
     .case-study {
-      background: #f1f3f8;
-    }
-
-    .case-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
     }
 
     .browser {
-      border-radius: 24px;
       overflow: hidden;
-      background: #fff;
       border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
+      border-radius: 24px;
+      background: white;
+      box-shadow: var(--shadow-lg);
     }
 
-    .browser-bar {
-      padding: 13px 16px;
+    .browser-top {
       display: flex;
       align-items: center;
-      gap: 7px;
-      background: #f7f8fb;
+      gap: 6px;
+      padding: 13px 15px;
       border-bottom: 1px solid var(--border);
+      background: #fafbfe;
     }
 
     .browser-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #d2d5dd;
+      background: #d5d9e2;
     }
 
     .browser-address {
       flex: 1;
+      height: 25px;
       margin-left: 8px;
-      padding: 7px 12px;
-      border-radius: 8px;
-      background: #fff;
-      border: 1px solid var(--border);
-      color: #8a91a0;
-      font-size: 0.65rem;
+      border-radius: 7px;
+      background: #eef0f5;
     }
 
-    .browser-body {
-      min-height: 430px;
-      padding: 35px;
+    .browser-screen {
+      min-height: 390px;
+      padding: 28px;
       background:
         radial-gradient(
-          circle at 80% 15%,
-          rgba(183,255,0,0.12),
-          transparent 25%
+          circle at 80% 20%,
+          rgba(183,255,0,0.16),
+          transparent 35%
         ),
         #080808;
       color: white;
     }
 
-    .browser-brand {
+    .thug-mini-label {
       color: #b7ff00;
-      font-size: 0.7rem;
+      font-size: 9px;
       font-weight: 900;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.15em;
     }
 
-    .browser-body h3 {
-      margin-top: 80px;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height: 0.9;
-      letter-spacing: -0.06em;
+    .browser-screen h3 {
+      margin-top: 65px;
+      max-width: 320px;
+      font-size: 42px;
+      line-height: 0.94;
+      letter-spacing: -0.055em;
     }
 
-    .browser-line {
-      width: 90px;
-      height: 3px;
-      margin-top: 28px;
-      background: #b7ff00;
-    }
-
-    .browser-product-row {
-      margin-top: 75px;
-      display: flex;
-      gap: 10px;
+    .mini-products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 55px;
     }
 
     .mini-product {
-      flex: 1;
-      min-height: 90px;
-      border-radius: 12px;
-      background: #171717;
+      height: 90px;
+      border-radius: 10px;
+      background:
+        linear-gradient(
+          145deg,
+          #242424,
+          #111
+        );
       border: 1px solid #292929;
     }
 
-    .case-copy h3 {
-      margin-top: 16px;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1;
-      letter-spacing: -0.045em;
+    .case-copy .section-heading {
+      margin-bottom: 28px;
     }
 
-    .case-copy > p {
-      margin-top: 18px;
+    .case-copy .section-heading h2 {
+      margin-bottom: 13px;
+    }
+
+    .case-copy p {
       color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 25px;
     }
 
-    .case-features {
-      margin-top: 28px;
+    .feature-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      gap: 9px;
+      margin-bottom: 27px;
     }
 
-    .case-feature {
-      padding: 14px;
-      background: white;
+    .feature {
+      padding: 13px 14px;
       border: 1px solid var(--border);
-      border-radius: 13px;
-      font-size: 0.72rem;
+      border-radius: 12px;
+      background: white;
+      color: #555d6d;
+      font-size: 11px;
       font-weight: 750;
     }
 
-    .case-actions {
+    .case-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 25px;
     }
 
     /* =========================
@@ -852,126 +895,119 @@
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 15px;
     }
 
     .process-card {
       padding: 25px;
-      border-radius: 20px;
-      background: white;
       border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: white;
     }
 
     .process-number {
       color: var(--blue);
-      font-size: 0.68rem;
+      font-size: 11px;
       font-weight: 900;
-      letter-spacing: 0.12em;
+      margin-bottom: 42px;
     }
 
     .process-card h3 {
-      margin-top: 50px;
-      font-size: 1rem;
+      font-size: 17px;
+      margin-bottom: 8px;
     }
 
     .process-card p {
-      margin-top: 8px;
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 13px;
+      line-height: 1.7;
     }
 
     /* =========================
        ABOUT
     ========================= */
 
-    .about {
-      background: white;
+    .about-section {
+      background: var(--surface-soft);
     }
 
     .about-grid {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
-      gap: 80px;
+      gap: 90px;
       align-items: start;
     }
 
-    .about-title h2 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
+    .about-title {
+      font-size: clamp(35px, 4vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
     }
 
-    .about-copy p {
+    .about-copy {
       color: var(--muted);
-      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.85;
     }
 
-    .about-highlight {
-      margin-top: 28px;
-      padding: 22px;
-      border-radius: 18px;
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-      font-size: 0.85rem;
-      font-weight: 700;
+    .about-copy p + p {
+      margin-top: 20px;
     }
 
     /* =========================
        CONTACT
     ========================= */
 
-    .contact {
-      padding: 110px 0;
+    .contact-section {
+      padding-bottom: 110px;
     }
 
-    .contact-grid {
+    .contact-box {
       display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      border-radius: 28px;
+      grid-template-columns: 0.8fr 1.2fr;
       overflow: hidden;
-      box-shadow: var(--shadow-md);
+      border-radius: var(--radius-xl);
+      background: var(--dark);
+      box-shadow: var(--shadow-lg);
     }
 
     .contact-info {
       padding: 48px;
-      background: var(--dark);
       color: white;
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(65,105,255,0.25),
+          transparent 45%
+        ),
+        #10131b;
+    }
+
+    .contact-info .section-label {
+      color: #91a6ff;
     }
 
     .contact-info h2 {
-      margin-top: 18px;
-      font-size: clamp(2.3rem, 5vw, 4rem);
-      line-height: 0.98;
+      max-width: 390px;
+      font-size: clamp(35px, 4vw, 52px);
+      line-height: 1.02;
       letter-spacing: -0.05em;
+      margin-bottom: 18px;
     }
 
     .contact-info p {
-      margin-top: 20px;
-      color: #a8afbd;
-      font-size: 0.86rem;
+      max-width: 390px;
+      color: #979faf;
+      font-size: 14px;
+      line-height: 1.8;
     }
 
-    .contact-meta {
-      margin-top: 40px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .contact-meta-item {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      color: #dfe2e8;
-      font-size: 0.77rem;
-    }
-
-    .contact-meta-icon {
-      width: 30px;
-      height: 30px;
-      display: grid;
-      place-items: center;
-      border-radius: 9px;
-      background: rgba(255,255,255,0.07);
+    .contact-email {
+      display: inline-block;
+      margin-top: 35px;
+      color: #dfe4ef;
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .contact-form-wrap {
@@ -979,81 +1015,93 @@
       background: white;
     }
 
-    .contact-form {
+    .form-grid {
       display: grid;
-      gap: 17px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+    .form-group {
+      margin-bottom: 16px;
     }
 
-    .field {
-      display: grid;
-      gap: 7px;
+    .form-group.full {
+      grid-column: 1 / -1;
     }
 
-    .field label {
-      font-size: 0.72rem;
-      font-weight: 800;
+    label {
+      display: block;
       color: #4f5665;
+      font-size: 12px;
+      font-weight: 750;
+      margin-bottom: 7px;
     }
 
-    .field input,
-    .field textarea,
-    .field select {
+    input,
+    textarea,
+    select {
       width: 100%;
       border: 1px solid var(--border);
-      background: #fbfcfe;
-      color: var(--text);
-      border-radius: 11px;
-      padding: 12px 13px;
+      border-radius: 12px;
+      padding: 13px 14px;
       outline: none;
-      transition: 0.2s ease;
+      color: var(--text);
+      background: #fbfcfe;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      border-color: #9aacff;
-      box-shadow: 0 0 0 4px rgba(65,105,255,0.08);
-      background: white;
+    input,
+    select {
+      height: 48px;
     }
 
-    .field textarea {
-      min-height: 130px;
+    textarea {
+      min-height: 135px;
       resize: vertical;
     }
 
-    .form-status {
-      margin-top: 14px;
-      padding: 12px 14px;
-      border-radius: 11px;
-      font-size: 0.78rem;
-      line-height: 1.5;
-      display: none;
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #8ea2ff;
+      box-shadow: 0 0 0 4px rgba(65,105,255,0.09);
+      background: white;
     }
 
-    .form-status.success {
-      display: block;
-      color: #19734b;
-      background: #eefaf4;
-      border: 1px solid #ccebdc;
-    }
-
-    .form-status.error {
-      display: block;
-      color: #a23b3b;
-      background: #fff1f1;
-      border: 1px solid #f0cccc;
+    .submit-btn {
+      width: 100%;
+      border: 0;
     }
 
     button:disabled {
       opacity: 0.65;
-      cursor: not-allowed;
+      cursor: wait;
       transform: none !important;
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 14px;
+      padding: 13px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .form-status.success {
+      display: block;
+      color: #17663a;
+      border: 1px solid #bde8cd;
+      background: #edf9f1;
+    }
+
+    .form-status.error {
+      display: block;
+      color: #8b2424;
+      border: 1px solid #f0c3c3;
+      background: #fff2f2;
     }
 
     /* =========================
@@ -1074,26 +1122,23 @@
     }
 
     .footer-copy {
-      color: #858c9a;
-      font-size: 0.7rem;
+      color: #8a919e;
+      font-size: 12px;
     }
 
     .footer-links {
       display: flex;
-      gap: 18px;
-    }
-
-    .footer-links a {
-      color: #697181;
-      font-size: 0.7rem;
-      font-weight: 700;
+      gap: 20px;
+      color: #6b7381;
+      font-size: 12px;
+      font-weight: 650;
     }
 
     /* =========================
        MODAL
     ========================= */
 
-    .modal {
+    .modal-overlay {
       position: fixed;
       inset: 0;
       z-index: 3000;
@@ -1101,117 +1146,106 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: rgba(7, 9, 14, 0.65);
-      backdrop-filter: blur(12px);
+      background: rgba(9, 11, 16, 0.65);
+      backdrop-filter: blur(8px);
     }
 
-    .modal.active {
+    .modal-overlay.active {
       display: flex;
     }
 
-    .modal-box {
-      width: min(680px, 100%);
+    .modal {
+      position: relative;
+      width: min(650px, 100%);
       max-height: 90vh;
       overflow-y: auto;
-      border-radius: 24px;
+      border-radius: 25px;
       background: white;
-      box-shadow: 0 30px 100px rgba(0,0,0,0.25);
-      position: relative;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.28);
     }
 
     .modal-head {
-      padding: 28px 30px 0;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      padding: 25px 28px 15px;
     }
 
-    .modal-head h2 {
-      font-size: 1.7rem;
-      letter-spacing: -0.04em;
-    }
-
-    .modal-head p {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 0.78rem;
+    .modal-head h3 {
+      font-size: 22px;
+      letter-spacing: -0.03em;
     }
 
     .modal-close {
       width: 36px;
       height: 36px;
+      border: 1px solid var(--border);
       border-radius: 10px;
-      background: #f0f2f7;
-      cursor: pointer;
-      font-size: 1rem;
+      background: white;
+      color: #555d6d;
     }
 
-    .modal-form {
-      padding: 25px 30px 30px;
+    .modal-body {
+      padding: 10px 28px 28px;
     }
 
     /* =========================
        CHAT
     ========================= */
 
-    .chat-demo {
+    .chat-button {
       position: fixed;
       right: 22px;
       bottom: 22px;
-      z-index: 1200;
-    }
-
-    .chat-button {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 12px 15px;
+      z-index: 1500;
+      border: 0;
+      padding: 13px 17px;
       border-radius: 999px;
       color: white;
-      background: var(--dark);
+      background: var(--text);
       box-shadow: 0 15px 35px rgba(0,0,0,0.18);
-      cursor: pointer;
-      font-size: 0.74rem;
+      font-size: 12px;
       font-weight: 800;
+      transition: transform 0.2s ease;
     }
 
-    .chat-button span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #68e19b;
-      box-shadow: 0 0 0 4px rgba(104,225,155,0.1);
+    .chat-button:hover {
+      transform: translateY(-3px);
+      background: var(--blue);
     }
 
-    .chat-box {
+    .chat-demo {
+      position: fixed;
+      right: 22px;
+      bottom: 78px;
+      z-index: 1499;
       display: none;
-      width: 300px;
-      margin-bottom: 10px;
+      width: 320px;
+      border: 1px solid var(--border);
       border-radius: 20px;
       overflow: hidden;
       background: white;
-      border: 1px solid var(--border);
-      box-shadow: 0 25px 70px rgba(0,0,0,0.16);
+      box-shadow: var(--shadow-lg);
     }
 
-    .chat-box.active {
+    .chat-demo.active {
       display: block;
     }
 
     .chat-head {
-      padding: 15px 17px;
+      padding: 15px;
       color: white;
       background: var(--dark);
     }
 
     .chat-head strong {
       display: block;
-      font-size: 0.78rem;
+      font-size: 13px;
     }
 
-    .chat-head small {
-      color: #9299a7;
-      font-size: 0.63rem;
+    .chat-head span {
+      color: #9098a7;
+      font-size: 10px;
     }
 
     .chat-body {
@@ -1221,40 +1255,47 @@
     .chat-message {
       padding: 11px 12px;
       border-radius: 12px;
-      background: #f2f4f8;
-      color: #4d5563;
-      font-size: 0.72rem;
+      background: #f1f3f8;
+      color: #555d6d;
+      font-size: 12px;
+      line-height: 1.55;
     }
 
-    .chat-demo-note {
-      margin-top: 9px;
-      color: #9299a7;
-      font-size: 0.59rem;
+    .chat-note {
+      margin-top: 12px;
+      color: #9a9faa;
+      font-size: 10px;
     }
 
     /* =========================
        RESPONSIVE
     ========================= */
 
-    @media (max-width: 980px) {
+    @media (max-width: 950px) {
       .hero-grid,
       .ai-grid,
-      .case-grid,
+      .case-study,
       .about-grid,
-      .contact-grid {
+      .contact-box {
         grid-template-columns: 1fr;
       }
 
-      .hero-copy {
-        max-width: 760px;
+      .hero-grid {
+        gap: 55px;
       }
 
-      .system-visual {
+      .system-wrap {
         max-width: 700px;
+        margin: 0 auto;
+        width: 100%;
       }
 
       .services-grid {
         grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: auto;
       }
 
       .process-grid {
@@ -1265,34 +1306,33 @@
         gap: 35px;
       }
 
-      .contact-grid {
-        max-width: 800px;
-        margin: 0 auto;
+      .case-study {
+        gap: 45px;
       }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 720px) {
       .container {
-        width: min(var(--max), calc(100% - 28px));
+        width: min(100% - 28px, 1160px);
       }
 
-      .section {
-        padding: 75px 0;
+      .nav {
+        height: 68px;
       }
 
       .nav-links {
-        display: none;
         position: absolute;
-        top: calc(100% + 8px);
         left: 14px;
         right: 14px;
-        padding: 16px;
+        top: 74px;
+        display: none;
         flex-direction: column;
         align-items: stretch;
-        gap: 5px;
-        background: rgba(255,255,255,0.97);
+        gap: 3px;
+        padding: 10px;
         border: 1px solid var(--border);
-        border-radius: 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.97);
         box-shadow: var(--shadow-md);
       }
 
@@ -1304,62 +1344,55 @@
         padding: 12px;
       }
 
-      .nav-cta {
-        text-align: center;
-      }
-
-      .menu-toggle {
-        display: block;
+      .menu-btn {
+        display: flex;
       }
 
       .hero {
-        padding: 65px 0 60px;
+        padding: 70px 0 70px;
       }
 
-      .hero-copy h1 {
-        font-size: clamp(3rem, 15vw, 5rem);
+      .hero h1 {
+        font-size: clamp(44px, 14vw, 65px);
       }
 
-      .system-visual {
-        min-height: 450px;
-        padding: 20px;
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .system-card {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .floating-badge {
+        display: none;
       }
 
       .capability-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .capability {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .capability:nth-child(2n) {
-        border-right: 0;
-      }
-
-      .ai-grid {
-        gap: 40px;
-      }
-
-      .browser-body {
-        min-height: 350px;
-        padding: 25px;
-      }
-
-      .browser-body h3 {
-        margin-top: 60px;
-      }
-
-      .browser-product-row {
-        margin-top: 55px;
-      }
-
-      .case-features {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
 
       .process-grid {
         grid-template-columns: 1fr;
+      }
+
+      .browser-screen {
+        min-height: 300px;
+      }
+
+      .browser-screen h3 {
+        margin-top: 45px;
+        font-size: 34px;
+      }
+
+      .mini-products {
+        margin-top: 40px;
       }
 
       .contact-info,
@@ -1367,8 +1400,13 @@
         padding: 30px 22px;
       }
 
-      .form-row {
+      .form-grid {
         grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-group.full {
+        grid-column: auto;
       }
 
       .footer-inner {
@@ -1378,35 +1416,13 @@
 
       .chat-demo {
         right: 14px;
+        left: 14px;
+        width: auto;
+      }
+
+      .chat-button {
+        right: 14px;
         bottom: 14px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .visual-badges {
-        left: 20px;
-        bottom: 20px;
-      }
-
-      .contact {
-        padding: 70px 0;
-      }
-
-      .modal-head {
-        padding: 22px 20px 0;
-      }
-
-      .modal-form {
-        padding: 20px;
       }
     }
   </style>
@@ -1422,13 +1438,12 @@
     <div class="container nav">
 
       <a href="#" class="logo">
-        <span class="logo-mark">GM</span>
-        <span>GM Web Studio</span>
+        <div class="logo-mark">GM</div>
+        <div class="logo-text">GM Web Studio</div>
       </a>
 
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
-        <a href="#automation">AI Automation</a>
         <a href="#work">Work</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
@@ -1436,10 +1451,10 @@
       </nav>
 
       <button
-        class="menu-toggle"
-        id="menuToggle"
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
         aria-label="Open menu"
-        aria-expanded="false"
       >
         ☰
       </button>
@@ -1457,24 +1472,24 @@
     <section class="hero">
       <div class="container hero-grid">
 
-        <div class="hero-copy">
-
-          <span class="eyebrow">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
             Digital studio · Web · AI
-          </span>
+          </div>
 
           <h1>
             Digital experiences
-            <span class="gradient-text">built to move.</span>
+            <span>built to move.</span>
           </h1>
 
-          <p>
+          <p class="hero-copy">
             We build modern websites, e-commerce experiences and practical
             AI-powered systems that help businesses attract customers,
-            operate smarter and grow.
+            capture opportunities and work smarter.
           </p>
 
-          <div class="hero-buttons">
+          <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">
               Start a Project →
             </a>
@@ -1487,56 +1502,76 @@
           <div class="hero-note">
             Built around your business, not a generic template.
           </div>
-
         </div>
 
 
-        <div class="system-visual">
+        <div class="system-wrap">
 
-          <div class="visual-top">
-            <div class="visual-label">
-              Business System
-            </div>
-
-            <div class="status-pill">
-              <span class="status-dot"></span>
-              Designed to work
-            </div>
+          <div class="floating-badge one">
+            <span class="badge-dot"></span>
+            Web + AI
           </div>
 
-          <div class="workflow">
+          <div class="floating-badge two">
+            <span class="badge-dot"></span>
+            Designed to work
+          </div>
 
-            <div class="workflow-card">
-              <div class="workflow-number">01</div>
-              <h3>Customer discovers</h3>
-              <p>Your website creates the first impression.</p>
+          <div class="system-card">
+
+            <div class="system-top">
+              <div class="system-title">
+                Business System
+              </div>
+
+              <div class="system-status">
+                ACTIVE
+              </div>
             </div>
 
-            <div class="workflow-card">
-              <div class="workflow-number">02</div>
-              <h3>AI captures the lead</h3>
-              <p>Important customer information is collected.</p>
-            </div>
+            <div class="workflow">
 
-            <div class="workflow-card">
-              <div class="workflow-number">03</div>
-              <h3>Automation takes over</h3>
-              <p>Repetitive work happens automatically.</p>
-            </div>
+              <div class="workflow-line"></div>
 
-            <div class="workflow-card">
-              <div class="workflow-number">04</div>
-              <h3>Business gets the opportunity</h3>
-              <p>Leads are organized and ready for follow-up.</p>
+              <div class="workflow-item">
+                <div class="workflow-number">01</div>
+
+                <div>
+                  <strong>Customer discovers</strong>
+                  <span>Your website creates the first impression.</span>
+                </div>
+              </div>
+
+              <div class="workflow-item">
+                <div class="workflow-number">02</div>
+
+                <div>
+                  <strong>AI captures the lead</strong>
+                  <span>Important customer information is collected.</span>
+                </div>
+              </div>
+
+              <div class="workflow-item">
+                <div class="workflow-number">03</div>
+
+                <div>
+                  <strong>Automation takes over</strong>
+                  <span>Follow-ups and business workflows run automatically.</span>
+                </div>
+              </div>
+
+              <div class="workflow-item">
+                <div class="workflow-number">04</div>
+
+                <div>
+                  <strong>Business gets the opportunity</strong>
+                  <span>Leads arrive organized and ready for action.</span>
+                </div>
+              </div>
+
             </div>
 
           </div>
-
-          <div class="visual-badges">
-            <div class="visual-badge">Web + AI</div>
-            <div class="visual-badge">Built for growth</div>
-          </div>
-
         </div>
 
       </div>
@@ -1547,103 +1582,84 @@
          CAPABILITIES
     ========================= -->
 
-    <section class="capabilities">
+    <div class="capabilities">
       <div class="container capability-row">
-
         <div class="capability">Strategy</div>
         <div class="capability">Design</div>
         <div class="capability">Development</div>
         <div class="capability">E-Commerce</div>
         <div class="capability">Automation</div>
-
       </div>
-    </section>
+    </div>
 
 
     <!-- =========================
          SERVICES
     ========================= -->
 
-    <section class="section" id="services">
-
+    <section id="services">
       <div class="container">
 
         <div class="section-heading">
-
-          <span class="eyebrow">
-            What we build
-          </span>
+          <div class="section-label">What we build</div>
 
           <h2>
-            Digital systems that do more than look good.
+            Digital tools designed around the way your business works.
           </h2>
 
           <p>
-            From the first page visitors see to the systems working behind
-            the scenes, we create digital experiences designed around
-            business goals.
+            From your first website to automated customer workflows,
+            we build practical systems that can grow with your business.
           </p>
-
         </div>
 
 
         <div class="services-grid">
 
           <article class="service-card">
+            <div class="service-number">01 / WEBSITES</div>
 
-            <div class="service-icon">01</div>
+            <div class="service-icon">W</div>
 
             <h3>Websites</h3>
 
             <p>
-              Modern, responsive websites designed to communicate your
-              business clearly and turn visitors into opportunities.
+              Fast, responsive and professional websites designed to
+              communicate your value clearly and turn visitors into
+              potential customers.
             </p>
-
-            <div class="service-link">
-              Explore websites →
-            </div>
-
           </article>
 
 
           <article class="service-card">
+            <div class="service-number">02 / E-COMMERCE</div>
 
-            <div class="service-icon">02</div>
+            <div class="service-icon">E</div>
 
             <h3>E-Commerce</h3>
 
             <p>
-              Complete online stores with product catalogues, carts,
-              payments and customer-focused buying experiences.
+              Modern online stores with product catalogues, shopping
+              carts, payments and customer-friendly buying experiences.
             </p>
-
-            <div class="service-link">
-              Build an online store →
-            </div>
-
           </article>
 
 
           <article class="service-card">
+            <div class="service-number">03 / AI AUTOMATION</div>
 
-            <div class="service-icon">03</div>
+            <div class="service-icon">AI</div>
 
             <h3>AI Automation</h3>
 
             <p>
-              Practical AI systems that capture leads, answer questions,
-              organize information and automate repetitive business work.
+              AI-powered customer assistants, lead systems and automated
+              workflows that reduce repetitive work and help businesses
+              respond faster.
             </p>
-
-            <div class="service-link">
-              Automate your business →
-            </div>
-
           </article>
 
         </div>
-
       </div>
     </section>
 
@@ -1652,46 +1668,44 @@
          AI AUTOMATION
     ========================= -->
 
-    <section class="section ai-section" id="automation">
-
+    <section class="ai-section">
       <div class="container ai-grid">
 
-        <div class="ai-copy">
+        <div>
 
-          <span class="eyebrow">
+          <div class="section-label">
             AI Automation
-          </span>
+          </div>
 
           <h2>
-            Make your business
-            <span class="gradient-text">work smarter.</span>
+            Make your business work smarter.
           </h2>
 
-          <p>
-            We connect websites, AI and business tools to create systems
-            that handle repetitive tasks and help businesses respond to
-            opportunities faster.
+          <p class="ai-copy">
+            Your business shouldn't have to manually handle every customer
+            question, lead or follow-up. We can connect AI with the tools
+            you already use to create smarter workflows.
           </p>
 
           <div class="ai-list">
 
             <div class="ai-list-item">
-              <span>✓</span>
+              <span class="check">✓</span>
               AI customer assistants
             </div>
 
             <div class="ai-list-item">
-              <span>✓</span>
+              <span class="check">✓</span>
               Lead capture and qualification
             </div>
 
             <div class="ai-list-item">
-              <span>✓</span>
+              <span class="check">✓</span>
               Automated customer follow-up
             </div>
 
             <div class="ai-list-item">
-              <span>✓</span>
+              <span class="check">✓</span>
               CRM, booking and API integrations
             </div>
 
@@ -1702,40 +1716,53 @@
 
         <div class="ai-workflow">
 
-          <div class="ai-window-top">
-            <span class="ai-window-dot"></span>
-            <span class="ai-window-dot"></span>
-            <span class="ai-window-dot"></span>
-          </div>
+          <div class="ai-window">
 
-          <div class="ai-flow">
-
-            <div class="ai-flow-card">
-              <small>New inquiry</small>
-              <strong>
-                "I need an online store for my clothing brand."
-              </strong>
+            <div class="window-bar">
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+              <span class="window-title">
+                lead-automation
+              </span>
             </div>
 
-            <div class="ai-flow-card">
-              <small>AI analysis</small>
-              <strong>
-                E-Commerce · High intent · New lead
-              </strong>
-            </div>
+            <div class="automation-flow">
 
-            <div class="ai-flow-card">
-              <small>Automation</small>
-              <strong>
-                Lead summarized → organized → ready for follow-up
-              </strong>
-            </div>
+              <div class="automation-node">
+                <small>01 · Incoming lead</small>
+                <strong>
+                  Customer submits project inquiry
+                </strong>
+              </div>
 
-            <div class="ai-flow-card">
-              <small>Business action</small>
-              <strong>
-                Recommended next step: Discovery call
-              </strong>
+              <div class="automation-arrow">↓</div>
+
+              <div class="automation-node">
+                <small>02 · AI analysis</small>
+                <strong>
+                  AI identifies service, budget and urgency
+                </strong>
+              </div>
+
+              <div class="automation-arrow">↓</div>
+
+              <div class="automation-node">
+                <small>03 · Automation</small>
+                <strong>
+                  Lead is organized and follow-up is prepared
+                </strong>
+              </div>
+
+              <div class="automation-arrow">↓</div>
+
+              <div class="automation-node">
+                <small>04 · Business action</small>
+                <strong>
+                  You receive a clear opportunity to follow up
+                </strong>
+              </div>
+
             </div>
 
           </div>
@@ -1743,7 +1770,6 @@
         </div>
 
       </div>
-
     </section>
 
 
@@ -1751,139 +1777,116 @@
          CASE STUDY
     ========================= -->
 
-    <section class="section case-study" id="work">
+    <section id="work">
+      <div class="container case-study">
 
-      <div class="container">
+        <div class="browser">
 
-        <div class="section-heading">
+          <div class="browser-top">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <div class="browser-address"></div>
+          </div>
 
-          <span class="eyebrow">
-            Selected work
-          </span>
+          <div class="browser-screen">
 
-          <h2>
-            Built for the real world.
-          </h2>
-
-          <p>
-            A real e-commerce project designed, developed and deployed
-            for a growing streetwear brand.
-          </p>
-
-        </div>
-
-
-        <div class="case-grid">
-
-          <div class="browser">
-
-            <div class="browser-bar">
-
-              <span class="browser-dot"></span>
-              <span class="browser-dot"></span>
-              <span class="browser-dot"></span>
-
-              <div class="browser-address">
-                thugszn.netlify.app
-              </div>
-
+            <div class="thug-mini-label">
+              THUG SZN
             </div>
 
-            <div class="browser-body">
+            <h3>
+              BUILT<br>
+              DIFFERENT.
+            </h3>
 
-              <div class="browser-brand">
-                THUG SZN
-              </div>
-
-              <h3>
-                BUILT<br />
-                DIFFERENT.
-              </h3>
-
-              <div class="browser-line"></div>
-
-              <div class="browser-product-row">
-                <div class="mini-product"></div>
-                <div class="mini-product"></div>
-                <div class="mini-product"></div>
-              </div>
-
+            <div class="mini-products">
+              <div class="mini-product"></div>
+              <div class="mini-product"></div>
+              <div class="mini-product"></div>
             </div>
 
           </div>
 
+        </div>
 
-          <div class="case-copy">
 
-            <span class="eyebrow">
+        <div class="case-copy">
+
+          <div class="section-heading">
+            <div class="section-label">
+              Featured project
+            </div>
+
+            <h2>
               THUG SZN
-            </span>
-
-            <h3>
-              Streetwear built for the digital world.
-            </h3>
+            </h2>
 
             <p>
               A complete e-commerce experience designed and developed
               for a growing streetwear brand.
             </p>
+          </div>
+
+          <p>
+            The project combines a responsive storefront, product
+            catalogue, shopping cart, payment integration and WhatsApp
+            ordering into one customer journey.
+          </p>
 
 
-            <div class="case-features">
+          <div class="feature-grid">
 
-              <div class="case-feature">
-                Responsive Website
-              </div>
-
-              <div class="case-feature">
-                Product Catalogue
-              </div>
-
-              <div class="case-feature">
-                Shopping Cart
-              </div>
-
-              <div class="case-feature">
-                Paystack Payments
-              </div>
-
-              <div class="case-feature">
-                WhatsApp Ordering
-              </div>
-
-              <div class="case-feature">
-                Netlify Deployment
-              </div>
-
+            <div class="feature">
+              Responsive Website
             </div>
 
-
-            <div class="case-actions">
-
-              <a
-                href="https://thugszn.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-              >
-                Visit Live Project →
-              </a>
-
-              <a
-                href="#contact"
-                class="btn btn-secondary"
-              >
-                Build Something Similar
-              </a>
-
+            <div class="feature">
+              Product Catalogue
             </div>
+
+            <div class="feature">
+              Shopping Cart
+            </div>
+
+            <div class="feature">
+              Paystack Payments
+            </div>
+
+            <div class="feature">
+              WhatsApp Ordering
+            </div>
+
+            <div class="feature">
+              Netlify Deployment
+            </div>
+
+          </div>
+
+
+          <div class="case-buttons">
+
+            <a
+              href="https://thugszn.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Visit Live Project ↗
+            </a>
+
+            <a
+              href="#contact"
+              class="btn btn-secondary"
+            >
+              Build Something Similar
+            </a>
 
           </div>
 
         </div>
 
       </div>
-
     </section>
 
 
@@ -1891,101 +1894,77 @@
          PROCESS
     ========================= -->
 
-    <section class="section" id="process">
-
+    <section id="process">
       <div class="container">
 
         <div class="section-heading">
-
-          <span class="eyebrow">
+          <div class="section-label">
             How we work
-          </span>
+          </div>
 
           <h2>
-            Simple process. Serious execution.
+            Simple process. Clear execution.
           </h2>
 
           <p>
-            Every project starts with understanding the business before
-            moving into design, development and launch.
+            We keep the process focused so your project moves from
+            idea to launch without unnecessary complexity.
           </p>
-
         </div>
 
 
         <div class="process-grid">
 
-          <article class="process-card">
+          <div class="process-card">
+            <div class="process-number">01</div>
 
-            <div class="process-number">
-              01 · DISCOVER
-            </div>
-
-            <h3>
-              Understand the business
-            </h3>
+            <h3>Discover</h3>
 
             <p>
-              Goals, audience, offer, requirements and opportunities.
+              We understand your business, audience, goals and what
+              the project needs to achieve.
             </p>
+          </div>
 
-          </article>
 
+          <div class="process-card">
+            <div class="process-number">02</div>
 
-          <article class="process-card">
-
-            <div class="process-number">
-              02 · DESIGN
-            </div>
-
-            <h3>
-              Shape the experience
-            </h3>
+            <h3>Design</h3>
 
             <p>
-              Structure, visual direction and user experience.
+              We shape the structure, visual direction and customer
+              experience around your business.
             </p>
+          </div>
 
-          </article>
 
+          <div class="process-card">
+            <div class="process-number">03</div>
 
-          <article class="process-card">
-
-            <div class="process-number">
-              03 · BUILD
-            </div>
-
-            <h3>
-              Turn the idea into reality
-            </h3>
+            <h3>Build</h3>
 
             <p>
-              Development, integrations, testing and refinement.
+              We develop the website, e-commerce features or
+              automation system and test the experience.
             </p>
+          </div>
 
-          </article>
 
+          <div class="process-card">
+            <div class="process-number">04</div>
 
-          <article class="process-card">
-
-            <div class="process-number">
-              04 · LAUNCH
-            </div>
-
-            <h3>
-              Put it to work
-            </h3>
+            <h3>Launch</h3>
 
             <p>
-              Deployment, final checks and handoff.
+              We deploy the project and make sure the important pieces
+              are working before handing it over.
             </p>
-
-          </article>
+          </div>
 
         </div>
 
       </div>
-
     </section>
 
 
@@ -1993,53 +1972,44 @@
          ABOUT
     ========================= -->
 
-    <section class="section about" id="about">
-
+    <section id="about" class="about-section">
       <div class="container about-grid">
 
-        <div class="about-title">
+        <div>
+          <div class="section-label">
+            About GM Web Studio
+          </div>
 
-          <span class="eyebrow">
-            About GM
-          </span>
-
-          <h2>
-            Small studio.
-            <span class="gradient-text">
-              Big digital ideas.
-            </span>
+          <h2 class="about-title">
+            Small studio.<br>
+            Big digital ideas.
           </h2>
-
         </div>
 
 
         <div class="about-copy">
 
           <p>
-            GM Web Studio is focused on creating practical digital
-            experiences for businesses that want to build a stronger
-            online presence.
+            GM Web Studio is a digital studio focused on building
+            practical digital experiences for modern businesses.
           </p>
 
           <p>
-            We combine modern web design, development, e-commerce and
-            practical AI automation to create systems that are useful,
-            scalable and built around the way a business actually works.
+            We combine modern web design, development, e-commerce
+            and practical AI automation to create systems that are
+            not only visually strong, but useful to the business
+            behind them.
           </p>
 
           <p>
-            The goal isn't simply to launch another website.
-            The goal is to build something that helps the business move.
+            The goal is simple: build technology that helps businesses
+            present themselves professionally, serve customers better
+            and create opportunities.
           </p>
-
-          <div class="about-highlight">
-            Web development today. AI-powered business systems tomorrow.
-          </div>
 
         </div>
 
       </div>
-
     </section>
 
 
@@ -2047,137 +2017,109 @@
          CONTACT
     ========================= -->
 
-    <section class="contact" id="contact">
-
+    <section id="contact" class="contact-section">
       <div class="container">
 
-        <div class="contact-grid">
+        <div class="contact-box">
 
           <div class="contact-info">
 
-            <span class="eyebrow">
+            <div class="section-label">
               Start a project
-            </span>
+            </div>
 
             <h2>
-              Let's build something useful.
+              Have an idea?
+              Let's build it.
             </h2>
 
             <p>
-              Tell us what you're building, what you need and where you
-              want to go. We'll review your project and get back to you.
+              Tell us what you're building, what you need and where
+              you want to go. We'll review your project and get back
+              to you.
             </p>
 
-
-            <div class="contact-meta">
-
-              <div class="contact-meta-item">
-
-                <div class="contact-meta-icon">
-                  @
-                </div>
-
-                gmwebstudio40@gmail.com
-
-              </div>
-
-
-              <div class="contact-meta-item">
-
-                <div class="contact-meta-icon">
-                  AI
-                </div>
-
-                Websites · E-Commerce · AI Automation
-
-              </div>
-
-
-              <div class="contact-meta-item">
-
-                <div class="contact-meta-icon">
-                  ✓
-                </div>
-
-                International projects welcome
-
-              </div>
-
-            </div>
+            <a
+              href="mailto:gmwebstudio40@gmail.com"
+              class="contact-email"
+            >
+              gmwebstudio40@gmail.com
+            </a>
 
           </div>
 
 
           <div class="contact-form-wrap">
 
+            <!--
+              IMPORTANT:
+              Formspree endpoint remains connected.
+              JavaScript below intercepts the form so the visitor
+              DOES NOT get redirected to Formspree.
+            -->
+
             <form
-              class="contact-form"
+              id="projectForm"
               action="https://formspree.io/f/mwlpzzwv"
               method="POST"
+              novalidate
             >
 
               <input
                 type="hidden"
                 name="_subject"
                 value="New GM Web Studio Project Inquiry"
-              />
+              >
 
-              <div class="form-row">
+              <div class="form-grid">
 
-                <div class="field">
-                  <label for="full-name">
+                <div class="form-group">
+                  <label for="fullName">
                     Full name
                   </label>
 
                   <input
-                    id="full-name"
-                    type="text"
+                    id="fullName"
                     name="name"
+                    type="text"
                     placeholder="Your name"
                     required
-                  />
+                  >
                 </div>
 
 
-                <div class="field">
+                <div class="form-group">
                   <label for="email">
                     Email
                   </label>
 
                   <input
                     id="email"
-                    type="email"
                     name="email"
+                    type="email"
                     placeholder="you@example.com"
                     required
-                  />
+                  >
                 </div>
 
-              </div>
 
-
-              <div class="form-row">
-
-                <div class="field">
-
+                <div class="form-group">
                   <label for="business">
                     Business / Brand
                   </label>
 
                   <input
                     id="business"
-                    type="text"
                     name="business"
-                    placeholder="Business name"
-                  />
-
+                    type="text"
+                    placeholder="Your business"
+                  >
                 </div>
 
 
-                <div class="field">
-
+                <div class="form-group">
                   <label for="service">
-                    What do you need?
+                    Service
                   </label>
 
                   <select
@@ -2185,7 +2127,6 @@
                     name="service"
                     required
                   >
-
                     <option value="">
                       Select a service
                     </option>
@@ -2202,46 +2143,42 @@
                       AI Automation
                     </option>
 
-                    <option value="Website + AI Automation">
-                      Website + AI Automation
-                    </option>
-
                     <option value="Other">
                       Other
                     </option>
-
                   </select>
-
                 </div>
 
-              </div>
 
+                <div class="form-group full">
+                  <label for="details">
+                    Project details
+                  </label>
 
-              <div class="field">
-
-                <label for="details">
-                  Project details
-                </label>
-
-                <textarea
-                  id="details"
-                  name="message"
-                  placeholder="Tell us about your business, what you want to build, your goals and any important requirements."
-                  required
-                ></textarea>
+                  <textarea
+                    id="details"
+                    name="message"
+                    placeholder="Tell us about your project, goals, timeline or anything else that would help us understand what you need."
+                    required
+                  ></textarea>
+                </div>
 
               </div>
 
 
               <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-primary submit-btn"
+                id="projectSubmit"
               >
                 Send Project Inquiry →
               </button>
 
+
               <div
+                id="projectStatus"
                 class="form-status"
+                role="status"
                 aria-live="polite"
               ></div>
 
@@ -2252,7 +2189,6 @@
         </div>
 
       </div>
-
     </section>
 
   </main>
@@ -2263,7 +2199,6 @@
   ========================= -->
 
   <footer>
-
     <div class="container footer-inner">
 
       <div class="footer-copy">
@@ -2277,8 +2212,47 @@
       </div>
 
     </div>
-
   </footer>
+
+
+  <!-- =========================
+       CHAT DEMO
+  ========================= -->
+
+  <div
+    class="chat-demo"
+    id="chatDemo"
+    aria-hidden="true"
+  >
+
+    <div class="chat-head">
+      <strong>GM Web Studio Assistant</strong>
+      <span>Interactive demo</span>
+    </div>
+
+    <div class="chat-body">
+
+      <div class="chat-message">
+        Hi! 👋 This is a demonstration of the type of AI customer
+        assistant GM Web Studio can build for businesses.
+      </div>
+
+      <div class="chat-note">
+        Demo only — not connected to a live AI model yet.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <button
+    type="button"
+    class="chat-button"
+    id="chatButton"
+  >
+    AI Demo
+  </button>
 
 
   <!-- =========================
@@ -2286,24 +2260,26 @@
   ========================= -->
 
   <div
-    class="modal"
+    class="modal-overlay"
     id="projectModal"
     aria-hidden="true"
   >
 
-    <div class="modal-box">
+    <div
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
 
       <div class="modal-head">
 
-        <div>
-          <h2>Start a project</h2>
-
-          <p>
-            Tell us what you're looking to build.
-          </p>
-        </div>
+        <h3 id="modalTitle">
+          Start a Project
+        </h3>
 
         <button
+          type="button"
           class="modal-close"
           id="modalClose"
           aria-label="Close"
@@ -2314,127 +2290,116 @@
       </div>
 
 
-      <div class="modal-form">
+      <div class="modal-body">
 
         <form
-          class="contact-form"
+          id="modalProjectForm"
           action="https://formspree.io/f/mwlpzzwv"
           method="POST"
+          novalidate
         >
 
           <input
             type="hidden"
             name="_subject"
             value="New GM Web Studio Project Inquiry"
-          />
+          >
 
-          <div class="form-row">
+          <div class="form-group">
 
-            <div class="field">
+            <label for="modalName">
+              Full name
+            </label>
 
-              <label for="modal-name">
-                Full name
-              </label>
-
-              <input
-                id="modal-name"
-                type="text"
-                name="name"
-                placeholder="Your name"
-                required
-              />
-
-            </div>
-
-
-            <div class="field">
-
-              <label for="modal-email">
-                Email
-              </label>
-
-              <input
-                id="modal-email"
-                type="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-
-            </div>
+            <input
+              id="modalName"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              required
+            >
 
           </div>
 
 
-          <div class="form-row">
+          <div class="form-group">
 
-            <div class="field">
+            <label for="modalEmail">
+              Email
+            </label>
 
-              <label for="modal-business">
-                Business / Brand
-              </label>
-
-              <input
-                id="modal-business"
-                type="text"
-                name="business"
-                placeholder="Business name"
-              />
-
-            </div>
-
-
-            <div class="field">
-
-              <label for="modal-service">
-                Service
-              </label>
-
-              <select
-                id="modal-service"
-                name="service"
-                required
-              >
-
-                <option value="">
-                  Select a service
-                </option>
-
-                <option value="Website">
-                  Website
-                </option>
-
-                <option value="E-Commerce">
-                  E-Commerce
-                </option>
-
-                <option value="AI Automation">
-                  AI Automation
-                </option>
-
-                <option value="Website + AI Automation">
-                  Website + AI Automation
-                </option>
-
-                <option value="Other">
-                  Other
-                </option>
-
-              </select>
-
-            </div>
+            <input
+              id="modalEmail"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            >
 
           </div>
 
 
-          <div class="field">
+          <div class="form-group">
 
-            <label for="modal-message">
+            <label for="modalBusiness">
+              Business / Brand
+            </label>
+
+            <input
+              id="modalBusiness"
+              name="business"
+              type="text"
+              placeholder="Your business"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="modalService">
+              Service
+            </label>
+
+            <select
+              id="modalService"
+              name="service"
+              required
+            >
+
+              <option value="">
+                Select a service
+              </option>
+
+              <option value="Website">
+                Website
+              </option>
+
+              <option value="E-Commerce">
+                E-Commerce
+              </option>
+
+              <option value="AI Automation">
+                AI Automation
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="modalDetails">
               Project details
             </label>
 
             <textarea
-              id="modal-message"
+              id="modalDetails"
               name="message"
               placeholder="Tell us about your project..."
               required
@@ -2445,13 +2410,15 @@
 
           <button
             type="submit"
-            class="btn btn-primary"
+            class="btn btn-primary submit-btn"
           >
-            Send Inquiry →
+            Send Project Inquiry →
           </button>
+
 
           <div
             class="form-status"
+            role="status"
             aria-live="polite"
           ></div>
 
@@ -2465,263 +2432,198 @@
 
 
   <!-- =========================
-       CHAT DEMO
-  ========================= -->
-
-  <div class="chat-demo">
-
-    <div
-      class="chat-box"
-      id="chatBox"
-    >
-
-      <div class="chat-head">
-
-        <strong>
-          GM Assistant
-        </strong>
-
-        <small>
-          Interactive demo
-        </small>
-
-      </div>
-
-      <div class="chat-body">
-
-        <div class="chat-message">
-          Hi! I'm the GM Web Studio demo assistant.
-          In a future version, I'll be connected to a real AI system
-          that can answer questions and capture leads.
-        </div>
-
-        <div class="chat-demo-note">
-          Demo only — not connected to live AI yet.
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <button
-      class="chat-button"
-      id="chatButton"
-    >
-      <span></span>
-      Ask GM Assistant
-    </button>
-
-  </div>
-
-
-  <!-- =========================
        JAVASCRIPT
   ========================= -->
 
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+      /*
+       * ============================================
+       * MOBILE MENU
+       * ============================================
+       */
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+      const menuBtn = document.getElementById("menuBtn");
+      const navLinks = document.getElementById("navLinks");
 
-    if (menuToggle && navLinks) {
+      if (menuBtn && navLinks) {
 
-      menuToggle.addEventListener("click", () => {
+        menuBtn.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
 
-        const isOpen = navLinks.classList.toggle("active");
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          isOpen ? "true" : "false"
-        );
-
-      });
+          if (navLinks.classList.contains("active")) {
+            menuBtn.textContent = "×";
+          } else {
+            menuBtn.textContent = "☰";
+          }
+        });
 
 
-      navLinks.querySelectorAll("a").forEach(link => {
+        navLinks.querySelectorAll("a").forEach(function (link) {
 
-        link.addEventListener("click", () => {
-
-          navLinks.classList.remove("active");
-
-          menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
+          link.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+            menuBtn.textContent = "☰";
+          });
 
         });
 
-      });
-
-    }
+      }
 
 
-    /* =========================
-       PROJECT MODAL
-    ========================= */
+      /*
+       * ============================================
+       * PROJECT MODAL
+       * ============================================
+       */
 
-    const projectModal =
-      document.getElementById("projectModal");
+      const projectModal =
+        document.getElementById("projectModal");
 
-    const modalClose =
-      document.getElementById("modalClose");
-
-
-    function openProjectModal() {
-
-      if (!projectModal) return;
-
-      projectModal.classList.add("active");
-
-      projectModal.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-      document.body.classList.add("modal-open");
-
-    }
+      const modalClose =
+        document.getElementById("modalClose");
 
 
-    function closeProjectModal() {
+      function openProjectModal() {
 
-      if (!projectModal) return;
+        if (!projectModal) return;
 
-      projectModal.classList.remove("active");
+        projectModal.classList.add("active");
+        projectModal.setAttribute("aria-hidden", "false");
 
-      projectModal.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-      document.body.classList.remove("modal-open");
-
-    }
+        document.body.style.overflow = "hidden";
+      }
 
 
-    if (modalClose) {
+      function closeProjectModal() {
 
-      modalClose.addEventListener(
-        "click",
-        closeProjectModal
-      );
+        if (!projectModal) return;
 
-    }
+        projectModal.classList.remove("active");
+        projectModal.setAttribute("aria-hidden", "true");
 
-
-    if (projectModal) {
-
-      projectModal.addEventListener(
-        "click",
-        event => {
-
-          if (event.target === projectModal) {
-            closeProjectModal();
-          }
-
-        }
-      );
-
-    }
+        document.body.style.overflow = "";
+      }
 
 
-    document.addEventListener(
-      "keydown",
-      event => {
+      if (modalClose) {
 
-        if (
-          event.key === "Escape" &&
-          projectModal &&
-          projectModal.classList.contains("active")
-        ) {
-
-          closeProjectModal();
-
-        }
+        modalClose.addEventListener(
+          "click",
+          closeProjectModal
+        );
 
       }
-    );
 
 
-    /*
-      Open the project modal for the main CTA buttons.
-    */
+      if (projectModal) {
 
-    document.querySelectorAll(
-      ".nav-cta, .btn-primary"
-    ).forEach(button => {
-
-      const text =
-        button.textContent.trim().toLowerCase();
-
-      if (
-        text.includes("start a project") ||
-        text.includes("build something similar")
-      ) {
-
-        button.addEventListener(
+        projectModal.addEventListener(
           "click",
-          event => {
+          function (event) {
 
-            event.preventDefault();
-
-            openProjectModal();
+            if (event.target === projectModal) {
+              closeProjectModal();
+            }
 
           }
         );
 
       }
 
-    });
+
+      document
+        .querySelectorAll('a[href="#contact"]')
+        .forEach(function (link) {
+
+          link.addEventListener("click", function () {
+
+            /*
+             * Normal anchor navigation is allowed for the
+             * main contact section.
+             */
+
+          });
+
+        });
 
 
-    /* =========================
-       FORMSPREE AJAX SUBMISSION
-    ========================= */
+      /*
+       * ============================================
+       * FORM HANDLING
+       *
+       * THIS IS THE IMPORTANT FIX.
+       *
+       * We stop the browser from navigating to Formspree.
+       * Then we send the form using fetch().
+       *
+       * Formspree still receives the submission.
+       * The visitor remains on GM Web Studio.
+       * ============================================
+       */
 
-    async function handleFormSubmit(form) {
+      async function handleFormSubmit(form) {
 
-      const status =
-        form.querySelector(".form-status");
+        const submitButton =
+          form.querySelector('button[type="submit"]');
 
-      const submitButton =
-        form.querySelector('button[type="submit"]');
-
-
-      if (!status || !submitButton) {
-        return;
-      }
-
-
-      status.className = "form-status";
-
-      status.textContent = "";
-
-
-      const originalButtonText =
-        submitButton.textContent;
+        const status =
+          form.querySelector(".form-status");
 
 
-      submitButton.disabled = true;
+        if (!submitButton || !status) {
+          return;
+        }
 
-      submitButton.textContent =
-        "Sending...";
+
+        /*
+         * STOP NORMAL FORM SUBMISSION.
+         * This prevents the Formspree page from opening.
+         */
+
+        event.preventDefault();
 
 
-      try {
+        /*
+         * Basic browser validation.
+         */
 
-        const response =
-          await fetch(
+        if (!form.checkValidity()) {
+
+          form.reportValidity();
+
+          return;
+
+        }
+
+
+        /*
+         * Clear old message.
+         */
+
+        status.className = "form-status";
+        status.textContent = "";
+
+
+        /*
+         * Disable button while sending.
+         */
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending…";
+
+
+        try {
+
+          const formData = new FormData(form);
+
+
+          const response = await fetch(
             form.action,
             {
               method: "POST",
-
-              body: new FormData(form),
-
+              body: formData,
               headers: {
                 "Accept": "application/json"
               }
@@ -2729,118 +2631,134 @@
           );
 
 
-        if (response.ok) {
-
-          status.className =
-            "form-status success";
-
-          status.textContent =
-            "Thanks — your project inquiry has been received. We'll be in touch soon.";
-
-
-          form.reset();
-
-
           /*
-            If this form is inside the modal,
-            close the modal after the visitor sees
-            the success message.
-          */
+           * Formspree normally returns a successful
+           * response when the submission is accepted.
+           */
 
-          if (
-            form.closest("#projectModal")
-          ) {
+          if (response.ok) {
 
-            setTimeout(() => {
+            status.className =
+              "form-status success";
 
-              closeProjectModal();
-
-              status.className =
-                "form-status";
-
-              status.textContent = "";
-
-            }, 2800);
-
-          }
+            status.textContent =
+              "Thanks — your project inquiry has been received. We'll be in touch soon.";
 
 
-        } else {
+            /*
+             * Clear the form after successful submission.
+             */
 
-          let errorMessage =
-            "Something went wrong. Please try again.";
+            form.reset();
 
-          try {
 
-            const data =
-              await response.json();
+            /*
+             * If this is the modal form, close it
+             * after a short delay.
+             */
 
-            if (
-              data &&
-              data.errors &&
-              data.errors.length
-            ) {
+            if (form.id === "modalProjectForm") {
 
-              errorMessage =
-                data.errors
-                  .map(error => error.message)
-                  .join(" ");
+              setTimeout(function () {
+                closeProjectModal();
+              }, 3000);
 
             }
 
-          } catch (error) {
-            /*
-              Formspree may return a response
-              that is not JSON.
-            */
+
+          } else {
+
+            let errorMessage =
+              "Something went wrong. Please try again.";
+
+            try {
+
+              const data =
+                await response.json();
+
+              if (
+                data &&
+                data.errors &&
+                data.errors.length
+              ) {
+
+                errorMessage =
+                  data.errors
+                    .map(function (error) {
+                      return error.message;
+                    })
+                    .join(" ");
+
+              }
+
+            } catch (jsonError) {
+              /*
+               * Keep the default error message.
+               */
+            }
+
+
+            status.className =
+              "form-status error";
+
+            status.textContent =
+              errorMessage;
+
           }
 
+        } catch (error) {
+
+          console.error(
+            "Form submission error:",
+            error
+          );
 
           status.className =
             "form-status error";
 
           status.textContent =
-            errorMessage;
+            "We couldn't send your inquiry right now. Please try again or email gmwebstudio40@gmail.com.";
+
+        } finally {
+
+          submitButton.disabled = false;
+          submitButton.textContent =
+            "Send Project Inquiry →";
 
         }
 
-      } catch (error) {
-
-        status.className =
-          "form-status error";
-
-        status.textContent =
-          "Unable to send your inquiry right now. Please try again.";
-
-      } finally {
-
-        submitButton.disabled = false;
-
-        submitButton.textContent =
-          originalButtonText;
-
       }
 
-    }
+
+      /*
+       * ============================================
+       * ATTACH FORM HANDLERS
+       * ============================================
+       */
+
+      const forms =
+        document.querySelectorAll(
+          'form[action="https://formspree.io/f/mwlpzzwv"]'
+        );
 
 
-    /*
-      Connect every Formspree form on the website.
-    */
-
-    document
-      .querySelectorAll(
-        'form[action="https://formspree.io/f/mwlpzzwv"]'
-      )
-      .forEach(form => {
+      forms.forEach(function (form) {
 
         form.addEventListener(
           "submit",
-          event => {
+          function (event) {
+
+            /*
+             * IMPORTANT:
+             * Pass the actual event into the handler.
+             */
 
             event.preventDefault();
 
-            handleFormSubmit(form);
+            handleFormSubmit(
+              form,
+              event
+            );
 
           }
         );
@@ -2848,59 +2766,64 @@
       });
 
 
-    /* =========================
-       DEMO CHAT
-    ========================= */
+      /*
+       * ============================================
+       * AI DEMO CHAT
+       * ============================================
+       */
 
-    const chatButton =
-      document.getElementById("chatButton");
+      const chatButton =
+        document.getElementById("chatButton");
 
-    const chatBox =
-      document.getElementById("chatBox");
+      const chatDemo =
+        document.getElementById("chatDemo");
 
 
-    if (chatButton && chatBox) {
+      if (chatButton && chatDemo) {
 
-      chatButton.addEventListener(
-        "click",
-        () => {
+        chatButton.addEventListener(
+          "click",
+          function () {
 
-          chatBox.classList.toggle("active");
+            chatDemo.classList.toggle("active");
+
+            chatDemo.setAttribute(
+              "aria-hidden",
+              chatDemo.classList.contains("active")
+                ? "false"
+                : "true"
+            );
+
+          }
+        );
+
+      }
+
+
+      /*
+       * ============================================
+       * ESCAPE KEY
+       * ============================================
+       */
+
+      document.addEventListener(
+        "keydown",
+        function (event) {
+
+          if (event.key === "Escape") {
+
+            closeProjectModal();
+
+            if (chatDemo) {
+              chatDemo.classList.remove("active");
+            }
+
+          }
 
         }
       );
 
-    }
-
-
-    /* =========================
-       CLOSE CHAT WHEN CLICKING OUTSIDE
-    ========================= */
-
-    document.addEventListener(
-      "click",
-      event => {
-
-        if (
-          !chatBox ||
-          !chatButton
-        ) {
-          return;
-        }
-
-
-        if (
-          !chatBox.contains(event.target) &&
-          !chatButton.contains(event.target)
-        ) {
-
-          chatBox.classList.remove("active");
-
-        }
-
-      }
-    );
-
+    });
   </script>
 
 </body>
