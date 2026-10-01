@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="GM Web Studio builds modern websites, e-commerce experiences and practical AI-powered business systems."
+    content="GM Web Studio builds modern websites, e-commerce experiences and practical AI automation systems for growing businesses."
   />
 
   <meta name="theme-color" content="#f6f7fb" />
@@ -18,31 +18,33 @@
       --bg: #f6f7fb;
       --surface: #ffffff;
       --surface-soft: #f0f2f8;
+
       --text: #11131a;
       --muted: #697181;
+
       --border: #e4e7ef;
 
       --blue: #4169ff;
       --blue-dark: #294bd6;
       --purple: #805cff;
 
-      --dark: #10121a;
-      --dark-soft: #171a24;
+      --dark: #0e1016;
+      --dark-soft: #171a22;
 
-      --shadow-sm: 0 8px 30px rgba(20, 25, 40, 0.06);
-      --shadow-md: 0 20px 60px rgba(20, 25, 40, 0.10);
+      --shadow-sm: 0 10px 30px rgba(17, 19, 26, 0.06);
+      --shadow-md: 0 20px 60px rgba(17, 19, 26, 0.10);
 
-      --radius-sm: 14px;
-      --radius-md: 22px;
-      --radius-lg: 30px;
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
 
-      --max-width: 1180px;
+      --max: 1180px;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -53,14 +55,11 @@
       font-family:
         Inter,
         ui-sans-serif,
+        system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
         sans-serif;
-
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -84,7 +83,7 @@
     }
 
     button {
-      cursor: pointer;
+      border: 0;
     }
 
     img {
@@ -92,12 +91,8 @@
       display: block;
     }
 
-    ::selection {
-      background: rgba(65, 105, 255, 0.18);
-    }
-
     .container {
-      width: min(var(--max-width), calc(100% - 40px));
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
@@ -105,20 +100,13 @@
       padding: 110px 0;
     }
 
-    .section-header {
-      max-width: 720px;
-      margin-bottom: 52px;
-    }
-
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 16px;
-
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--blue);
     }
@@ -132,38 +120,41 @@
       box-shadow: 0 0 0 5px rgba(65, 105, 255, 0.10);
     }
 
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3.25rem);
-      line-height: 1.05;
-      letter-spacing: -0.045em;
-      font-weight: 800;
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 52px;
     }
 
-    .section-description {
+    .section-heading h2 {
+      margin-top: 16px;
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .section-heading p {
       margin-top: 18px;
       color: var(--muted);
+      max-width: 620px;
       font-size: 1rem;
-      max-width: 650px;
     }
 
     /* =========================
        HEADER
     ========================= */
 
-    .header {
+    header {
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      background: rgba(246, 247, 251, 0.82);
+      padding: 16px 0;
+      background: rgba(246, 247, 251, 0.76);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-
-      border-bottom: 1px solid rgba(228, 231, 239, 0.75);
+      border-bottom: 1px solid rgba(228, 231, 239, 0.8);
     }
 
     .nav {
-      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -180,19 +171,15 @@
     }
 
     .logo-mark {
-      width: 34px;
-      height: 34px;
+      width: 35px;
+      height: 35px;
       border-radius: 11px;
-
       display: grid;
       place-items: center;
-
       color: white;
-      background:
-        linear-gradient(135deg, var(--blue), var(--purple));
-
-      box-shadow:
-        0 8px 20px rgba(65, 105, 255, 0.24);
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      box-shadow: 0 10px 25px rgba(65, 105, 255, 0.25);
+      font-size: 0.78rem;
     }
 
     .nav-links {
@@ -202,10 +189,10 @@
     }
 
     .nav-links a {
-      font-size: 0.88rem;
-      font-weight: 650;
       color: #555d6d;
-      transition: color 0.2s ease;
+      font-size: 0.84rem;
+      font-weight: 650;
+      transition: 0.2s ease;
     }
 
     .nav-links a:hover {
@@ -213,42 +200,27 @@
     }
 
     .nav-cta {
-      padding: 11px 17px !important;
-      color: white !important;
+      padding: 11px 16px;
+      border-radius: 11px;
       background: var(--text);
-      border-radius: 12px;
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+      color: white !important;
+      box-shadow: var(--shadow-sm);
     }
 
     .nav-cta:hover {
-      color: white !important;
-      background: #252a37;
       transform: translateY(-1px);
+      background: #000;
     }
 
     .menu-toggle {
       display: none;
-
       width: 42px;
       height: 42px;
-
-      border: 1px solid var(--border);
       border-radius: 12px;
       background: var(--surface);
-
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .menu-toggle span {
-      width: 18px;
-      height: 2px;
-      border-radius: 99px;
-      background: var(--text);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 1.15rem;
     }
 
     /* =========================
@@ -256,338 +228,279 @@
     ========================= */
 
     .hero {
+      padding: 90px 0 80px;
       position: relative;
-      padding: 105px 0 90px;
       overflow: hidden;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-
       width: 600px;
       height: 600px;
-
-      top: -260px;
-      right: -160px;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(128, 92, 255, 0.15),
-          transparent 67%
-        );
-
+      right: -240px;
+      top: -240px;
+      background: radial-gradient(
+        circle,
+        rgba(128, 92, 255, 0.13),
+        transparent 65%
+      );
       pointer-events: none;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-
       width: 500px;
       height: 500px;
-
-      left: -250px;
-      bottom: -280px;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(65, 105, 255, 0.12),
-          transparent 68%
-        );
-
+      left: -260px;
+      bottom: -300px;
+      background: radial-gradient(
+        circle,
+        rgba(65, 105, 255, 0.10),
+        transparent 65%
+      );
       pointer-events: none;
     }
 
     .hero-grid {
-      position: relative;
-      z-index: 1;
-
       display: grid;
       grid-template-columns: 1.02fr 0.98fr;
-      align-items: center;
       gap: 70px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-copy {
-      max-width: 650px;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 6vw, 5.25rem);
-      line-height: 0.98;
+    .hero-copy h1 {
+      margin-top: 20px;
+      max-width: 680px;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      line-height: 0.91;
       letter-spacing: -0.065em;
-      font-weight: 850;
-      max-width: 690px;
     }
 
-    .hero h1 span {
-      background:
-        linear-gradient(
-          100deg,
-          var(--blue),
-          var(--purple)
-        );
-
+    .gradient-text {
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .hero-text {
+    .hero-copy p {
       margin-top: 26px;
-      max-width: 610px;
-
+      max-width: 590px;
       color: var(--muted);
-      font-size: 1.08rem;
-      line-height: 1.75;
+      font-size: 1.04rem;
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
 
     .btn {
-      min-height: 48px;
-      padding: 0 20px;
-
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 9px;
-
+      padding: 14px 19px;
       border-radius: 13px;
-      border: 1px solid transparent;
-
-      font-size: 0.9rem;
-      font-weight: 750;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
+      font-size: 0.83rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.22s ease;
     }
 
     .btn-primary {
       color: white;
-      background: var(--text);
-      box-shadow: 0 12px 28px rgba(17, 19, 26, 0.12);
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--purple)
+      );
+      box-shadow: 0 14px 30px rgba(65, 105, 255, 0.22);
     }
 
     .btn-primary:hover {
-      background: #272c39;
-      box-shadow: 0 16px 34px rgba(17, 19, 26, 0.16);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 35px rgba(65, 105, 255, 0.28);
     }
 
     .btn-secondary {
       background: var(--surface);
-      border-color: var(--border);
+      border: 1px solid var(--border);
       color: var(--text);
     }
 
     .btn-secondary:hover {
-      border-color: #ccd2df;
-      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+      border-color: #ccd1dd;
     }
 
     .hero-note {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 23px;
-
-      color: #777f8e;
-      font-size: 0.82rem;
+      margin-top: 18px;
+      font-size: 0.76rem;
+      color: #858c9a;
     }
 
-    .hero-note-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #39b875;
-      box-shadow: 0 0 0 5px rgba(57, 184, 117, 0.10);
-    }
-
-    /* Hero visual */
+    /* =========================
+       SYSTEM VISUAL
+    ========================= */
 
     .system-visual {
       position: relative;
       min-height: 500px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .visual-glow {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(65, 105, 255, 0.20),
-          rgba(128, 92, 255, 0.10),
-          transparent 68%
-        );
-
-      filter: blur(12px);
-    }
-
-    .system-card {
-      position: relative;
-      width: min(100%, 480px);
-
-      padding: 24px;
-
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 28px;
-
+      border-radius: 32px;
+      padding: 28px;
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,0.90),
-          rgba(246,248,253,0.78)
+          rgba(255,255,255,0.96),
+          rgba(241,243,250,0.88)
         );
-
-      box-shadow:
-        0 35px 90px rgba(30, 40, 75, 0.14),
-        inset 0 1px 0 rgba(255,255,255,0.95);
-
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
     }
 
-    .system-top {
+    .system-visual::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(
+        circle,
+        rgba(65,105,255,0.16),
+        transparent 65%
+      );
+      top: -130px;
+      right: -80px;
+    }
+
+    .system-visual::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(
+        circle,
+        rgba(128,92,255,0.12),
+        transparent 65%
+      );
+      bottom: -130px;
+      left: -80px;
+    }
+
+    .visual-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
     }
 
-    .system-title {
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
+    .visual-label {
+      font-size: 0.7rem;
       text-transform: uppercase;
-      color: #737b8b;
+      letter-spacing: 0.13em;
+      font-weight: 800;
+      color: #747c8b;
     }
 
-    .system-status {
+    .status-pill {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-
       padding: 7px 10px;
-
       border-radius: 999px;
-      background: #f0faf5;
-
-      color: #27875a;
-      font-size: 0.72rem;
-      font-weight: 750;
-    }
-
-    .system-status::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #32b875;
-    }
-
-    .system-flow {
-      display: grid;
-      gap: 10px;
-    }
-
-    .flow-node {
-      position: relative;
-
-      display: grid;
-      grid-template-columns: 42px 1fr auto;
-      align-items: center;
-      gap: 14px;
-
-      padding: 15px;
-
+      background: #fff;
       border: 1px solid var(--border);
-      border-radius: 17px;
-
-      background: rgba(255,255,255,0.82);
+      font-size: 0.67rem;
+      font-weight: 750;
+      color: #566070;
     }
 
-    .flow-icon {
-      width: 38px;
-      height: 38px;
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #43c781;
+      box-shadow: 0 0 0 4px rgba(67,199,129,0.10);
+    }
 
+    .workflow {
+      position: relative;
+      z-index: 2;
+      margin-top: 50px;
       display: grid;
-      place-items: center;
+      gap: 14px;
+    }
 
-      border-radius: 12px;
+    .workflow-card {
+      position: relative;
+      padding: 18px;
+      border-radius: 17px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(228,231,239,0.9);
+      box-shadow: 0 10px 30px rgba(17,19,26,0.05);
+      backdrop-filter: blur(10px);
+    }
 
+    .workflow-card::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 15px;
+      background: #d9ddea;
+      left: 27px;
+      bottom: -15px;
+    }
+
+    .workflow-card:last-child::after {
+      display: none;
+    }
+
+    .workflow-number {
+      font-size: 0.66rem;
+      font-weight: 900;
       color: var(--blue);
-      background: #eef2ff;
-
-      font-size: 0.76rem;
-      font-weight: 850;
+      letter-spacing: 0.08em;
     }
 
-    .flow-node strong {
-      display: block;
-      font-size: 0.87rem;
-      letter-spacing: -0.01em;
+    .workflow-card h3 {
+      margin-top: 4px;
+      font-size: 0.96rem;
     }
 
-    .flow-node small {
-      display: block;
-      margin-top: 2px;
+    .workflow-card p {
+      margin-top: 4px;
       color: var(--muted);
-      font-size: 0.73rem;
+      font-size: 0.72rem;
     }
 
-    .flow-arrow {
-      color: #a0a7b5;
-      font-size: 0.9rem;
+    .visual-badges {
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      display: flex;
+      gap: 8px;
+      z-index: 3;
     }
 
     .visual-badge {
-      position: absolute;
-
-      padding: 12px 15px;
-
-      border: 1px solid rgba(255,255,255,0.9);
-      border-radius: 15px;
-
-      background: rgba(255,255,255,0.88);
-      box-shadow: 0 18px 40px rgba(30, 40, 75, 0.10);
-
-      backdrop-filter: blur(14px);
-
-      font-size: 0.76rem;
+      padding: 8px 11px;
+      border-radius: 9px;
+      background: var(--dark);
+      color: white;
+      font-size: 0.65rem;
       font-weight: 800;
-    }
-
-    .badge-one {
-      top: 50px;
-      right: -18px;
-    }
-
-    .badge-two {
-      bottom: 58px;
-      left: -24px;
     }
 
     /* =========================
@@ -595,32 +508,23 @@
     ========================= */
 
     .capabilities {
-      padding: 25px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.42);
+      background: rgba(255,255,255,0.55);
     }
 
-    .capability-list {
+    .capability-row {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
     }
 
     .capability {
-      min-height: 68px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-right: 1px solid var(--border);
-
-      color: #727a89;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
+      padding: 24px 16px;
       text-align: center;
+      color: #5e6676;
+      font-size: 0.75rem;
+      font-weight: 800;
+      border-right: 1px solid var(--border);
     }
 
     .capability:last-child {
@@ -638,290 +542,174 @@
     }
 
     .service-card {
-      position: relative;
       padding: 30px;
-
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-
+      min-height: 320px;
       background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow-sm);
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .service-card:hover {
       transform: translateY(-5px);
-      border-color: #d6dbe7;
       box-shadow: var(--shadow-md);
-    }
-
-    .service-number {
-      color: #a3a9b6;
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      border-color: #d8dce7;
     }
 
     .service-icon {
       width: 48px;
       height: 48px;
-
+      border-radius: 14px;
       display: grid;
       place-items: center;
-
-      margin: 22px 0 22px;
-
-      border-radius: 15px;
-
       color: var(--blue);
-      background:
-        linear-gradient(
-          135deg,
-          #eef2ff,
-          #f3efff
-        );
-
+      background: #eef1ff;
       font-weight: 900;
+      font-size: 1.1rem;
     }
 
     .service-card h3 {
+      margin-top: 70px;
       font-size: 1.25rem;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
     }
 
     .service-card p {
       margin-top: 10px;
       color: var(--muted);
-      font-size: 0.91rem;
-      line-height: 1.7;
+      font-size: 0.87rem;
     }
 
-    .service-list {
-      margin-top: 22px;
-      display: grid;
-      gap: 10px;
-      list-style: none;
-    }
-
-    .service-list li {
-      display: flex;
-      gap: 9px;
-      align-items: flex-start;
-
-      color: #555e6d;
-      font-size: 0.83rem;
-    }
-
-    .service-list li::before {
-      content: "✓";
+    .service-link {
+      position: absolute;
+      left: 30px;
+      bottom: 28px;
       color: var(--blue);
-      font-weight: 900;
+      font-size: 0.76rem;
+      font-weight: 800;
     }
 
     /* =========================
-       AUTOMATION
+       AI SECTION
     ========================= */
 
-    .automation-section {
+    .ai-section {
       background: var(--dark);
       color: white;
       position: relative;
       overflow: hidden;
     }
 
-    .automation-section::before {
+    .ai-section::before {
       content: "";
       position: absolute;
-
-      width: 700px;
-      height: 700px;
-
-      top: -420px;
-      right: -180px;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(128,92,255,0.22),
-          transparent 68%
-        );
+      width: 600px;
+      height: 600px;
+      right: -220px;
+      top: -220px;
+      background: radial-gradient(
+        circle,
+        rgba(65,105,255,0.22),
+        transparent 65%
+      );
     }
 
-    .automation-section::after {
-      content: "";
-      position: absolute;
-
-      width: 500px;
-      height: 500px;
-
-      bottom: -380px;
-      left: -220px;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(65,105,255,0.16),
-          transparent 70%
-        );
-    }
-
-    .automation-grid {
-      position: relative;
-      z-index: 1;
-
+    .ai-grid {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
-      gap: 80px;
+      gap: 70px;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
-    .automation-copy .eyebrow {
-      color: #8fa5ff;
-    }
-
-    .automation-copy .eyebrow::before {
-      background: #8fa5ff;
-      box-shadow: 0 0 0 5px rgba(143,165,255,0.10);
-    }
-
-    .automation-copy h2 {
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      line-height: 1.02;
+    .ai-copy h2 {
+      margin-top: 17px;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 0.98;
       letter-spacing: -0.05em;
     }
 
-    .automation-copy p {
-      margin-top: 20px;
-      max-width: 540px;
-      color: #aeb4c2;
-      line-height: 1.75;
+    .ai-copy p {
+      margin-top: 22px;
+      color: #a9afbd;
+      max-width: 550px;
     }
 
-    .automation-points {
-      margin-top: 28px;
+    .ai-list {
+      margin-top: 30px;
       display: grid;
-      gap: 13px;
+      gap: 12px;
     }
 
-    .automation-point {
+    .ai-list-item {
       display: flex;
       align-items: center;
       gap: 11px;
-
-      color: #d8dce5;
-      font-size: 0.87rem;
+      color: #dfe2e9;
+      font-size: 0.84rem;
     }
 
-    .automation-point span {
-      width: 22px;
-      height: 22px;
-
+    .ai-list-item span {
+      width: 20px;
+      height: 20px;
       display: grid;
       place-items: center;
-
-      border-radius: 7px;
-
-      background: rgba(255,255,255,0.08);
-      color: #9db0ff;
-
-      font-size: 0.72rem;
-      font-weight: 900;
+      border-radius: 50%;
+      background: rgba(65,105,255,0.18);
+      color: #91a6ff;
+      font-size: 0.65rem;
     }
 
-    .workflow {
-      padding: 28px;
-
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 26px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,0.075),
-          rgba(255,255,255,0.035)
-        );
-
-      box-shadow:
-        0 35px 80px rgba(0,0,0,0.18);
-
-      backdrop-filter: blur(16px);
-    }
-
-    .workflow-label {
-      color: #858d9e;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
-
-    .workflow-step {
-      position: relative;
-
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 15px;
-
-      padding: 16px;
-
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-
+    .ai-workflow {
+      padding: 30px;
+      border-radius: 28px;
       background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.09);
+      backdrop-filter: blur(12px);
     }
 
-    .workflow-step + .workflow-step {
-      margin-top: 12px;
+    .ai-window-top {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 25px;
     }
 
-    .workflow-step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-
-      width: 1px;
-      height: 12px;
-
-      left: 35px;
-      bottom: -13px;
-
-      background: rgba(255,255,255,0.15);
+    .ai-window-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #626877;
     }
 
-    .workflow-number {
-      width: 36px;
-      height: 36px;
-
+    .ai-flow {
       display: grid;
-      place-items: center;
-
-      border-radius: 11px;
-
-      color: white;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(65,105,255,0.45),
-          rgba(128,92,255,0.45)
-        );
-
-      font-size: 0.72rem;
-      font-weight: 850;
+      gap: 10px;
     }
 
-    .workflow-step strong {
+    .ai-flow-card {
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .ai-flow-card small {
       display: block;
-      font-size: 0.9rem;
+      color: #7f8797;
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
     }
 
-    .workflow-step p {
-      margin-top: 3px;
-      color: #8f97a8;
-      font-size: 0.76rem;
+    .ai-flow-card strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.83rem;
     }
 
     /* =========================
@@ -929,209 +717,132 @@
     ========================= */
 
     .case-study {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      align-items: center;
+      background: #f1f3f8;
     }
 
-    .case-visual {
-      min-height: 470px;
-
-      padding: 20px;
-
-      display: flex;
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 60px;
       align-items: center;
-
-      border-radius: 30px;
-
-      background:
-        radial-gradient(
-          circle at 20% 20%,
-          #313131,
-          transparent 45%
-        ),
-        #080808;
-
-      box-shadow:
-        0 30px 70px rgba(0,0,0,0.18);
     }
 
     .browser {
-      width: 100%;
+      border-radius: 24px;
       overflow: hidden;
-
-      border: 1px solid #333;
-      border-radius: 18px;
-
-      background: #101010;
-
-      box-shadow:
-        0 20px 45px rgba(0,0,0,0.30);
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
     }
 
     .browser-bar {
-      height: 42px;
-
+      padding: 13px 16px;
       display: flex;
       align-items: center;
-      gap: 6px;
-
-      padding: 0 13px;
-
-      border-bottom: 1px solid #292929;
-      background: #151515;
+      gap: 7px;
+      background: #f7f8fb;
+      border-bottom: 1px solid var(--border);
     }
 
     .browser-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: #555;
+      background: #d2d5dd;
     }
 
-    .browser-url {
+    .browser-address {
+      flex: 1;
       margin-left: 8px;
-
-      padding: 5px 10px;
-
-      border-radius: 7px;
-      background: #1e1e1e;
-
-      color: #777;
-      font-size: 0.62rem;
+      padding: 7px 12px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: #8a91a0;
+      font-size: 0.65rem;
     }
 
-    .thug-page {
-      min-height: 390px;
-      padding: 34px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
+    .browser-body {
+      min-height: 430px;
+      padding: 35px;
       background:
-        linear-gradient(
-          145deg,
-          #0a0a0a,
-          #161616
-        );
-
+        radial-gradient(
+          circle at 80% 15%,
+          rgba(183,255,0,0.12),
+          transparent 25%
+        ),
+        #080808;
       color: white;
     }
 
-    .thug-brand {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      font-weight: 900;
-      font-size: 0.82rem;
-      letter-spacing: 0.07em;
-    }
-
-    .thug-nav {
-      display: flex;
-      gap: 12px;
-
-      color: #888;
-      font-size: 0.58rem;
-    }
-
-    .thug-content {
-      padding: 25px 0;
-    }
-
-    .thug-mini {
+    .browser-brand {
       color: #b7ff00;
-      font-size: 0.63rem;
-      font-weight: 850;
+      font-size: 0.7rem;
+      font-weight: 900;
       letter-spacing: 0.13em;
     }
 
-    .thug-heading {
-      margin-top: 10px;
-
-      font-size: clamp(2.5rem, 6vw, 4.7rem);
-      line-height: 0.88;
+    .browser-body h3 {
+      margin-top: 80px;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 0.9;
       letter-spacing: -0.06em;
-      font-weight: 950;
     }
 
-    .thug-copy {
-      max-width: 330px;
-      margin-top: 18px;
-
-      color: #999;
-      font-size: 0.73rem;
-      line-height: 1.7;
-    }
-
-    .thug-button {
-      display: inline-flex;
-      margin-top: 20px;
-
-      padding: 10px 15px;
-
-      border-radius: 8px;
+    .browser-line {
+      width: 90px;
+      height: 3px;
+      margin-top: 28px;
       background: #b7ff00;
-      color: #080808;
-
-      font-size: 0.68rem;
-      font-weight: 900;
     }
 
-    .case-content .eyebrow {
-      margin-bottom: 13px;
+    .browser-product-row {
+      margin-top: 75px;
+      display: flex;
+      gap: 10px;
     }
 
-    .case-content h3 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.04;
+    .mini-product {
+      flex: 1;
+      min-height: 90px;
+      border-radius: 12px;
+      background: #171717;
+      border: 1px solid #292929;
+    }
+
+    .case-copy h3 {
+      margin-top: 16px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
       letter-spacing: -0.045em;
     }
 
-    .case-content > p {
+    .case-copy > p {
       margin-top: 18px;
       color: var(--muted);
-      line-height: 1.75;
     }
 
-    .case-details {
+    .case-features {
       margin-top: 28px;
-
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
     }
 
-    .case-detail {
-      padding: 13px 14px;
-
+    .case-feature {
+      padding: 14px;
+      background: white;
       border: 1px solid var(--border);
       border-radius: 13px;
-
-      background: var(--surface);
-    }
-
-    .case-detail strong {
-      display: block;
-      font-size: 0.8rem;
-    }
-
-    .case-detail span {
-      display: block;
-      margin-top: 2px;
-
-      color: var(--muted);
       font-size: 0.72rem;
+      font-weight: 750;
     }
 
     .case-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 28px;
+      margin-top: 25px;
     }
 
     /* =========================
@@ -1141,86 +852,67 @@
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      background: var(--surface);
+      gap: 14px;
     }
 
     .process-card {
-      min-height: 230px;
-      padding: 28px;
-
-      border-right: 1px solid var(--border);
-    }
-
-    .process-card:last-child {
-      border-right: 0;
+      padding: 25px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid var(--border);
     }
 
     .process-number {
-      font-size: 0.72rem;
-      font-weight: 850;
       color: var(--blue);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
     }
 
     .process-card h3 {
-      margin-top: 58px;
-      font-size: 1.05rem;
-      letter-spacing: -0.02em;
+      margin-top: 50px;
+      font-size: 1rem;
     }
 
     .process-card p {
       margin-top: 8px;
       color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.65;
+      font-size: 0.78rem;
     }
 
     /* =========================
        ABOUT
     ========================= */
 
+    .about {
+      background: white;
+    }
+
     .about-grid {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 70px;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
       align-items: start;
     }
 
-    .about-title {
-      font-size: clamp(2.1rem, 4vw, 3.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
+    .about-title h2 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
     }
 
-    .about-text {
+    .about-copy p {
       color: var(--muted);
-      line-height: 1.8;
+      margin-bottom: 18px;
     }
 
-    .about-text + .about-text {
-      margin-top: 18px;
-    }
-
-    .about-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
+    .about-highlight {
       margin-top: 28px;
-    }
-
-    .about-tag {
-      padding: 8px 11px;
-
+      padding: 22px;
+      border-radius: 18px;
+      background: var(--surface-soft);
       border: 1px solid var(--border);
-      border-radius: 999px;
-
-      background: var(--surface);
-
-      color: #596170;
-      font-size: 0.74rem;
+      font-size: 0.85rem;
       font-weight: 700;
     }
 
@@ -1228,109 +920,74 @@
        CONTACT
     ========================= */
 
-    .contact-section {
-      padding-top: 70px;
-      padding-bottom: 110px;
+    .contact {
+      padding: 110px 0;
     }
 
-    .contact-wrap {
+    .contact-grid {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-
-      border-radius: 30px;
+      grid-template-columns: 0.75fr 1.25fr;
+      border-radius: 28px;
       overflow: hidden;
-
-      background: var(--dark);
-      box-shadow: 0 30px 80px rgba(20,25,40,0.15);
+      box-shadow: var(--shadow-md);
     }
 
     .contact-info {
       padding: 48px;
+      background: var(--dark);
       color: white;
-
-      background:
-        radial-gradient(
-          circle at 15% 10%,
-          rgba(65,105,255,0.24),
-          transparent 42%
-        ),
-        var(--dark);
-    }
-
-    .contact-info .eyebrow {
-      color: #9db0ff;
-    }
-
-    .contact-info .eyebrow::before {
-      background: #9db0ff;
-      box-shadow: 0 0 0 5px rgba(157,176,255,0.10);
     }
 
     .contact-info h2 {
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      line-height: 1.02;
+      margin-top: 18px;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 0.98;
       letter-spacing: -0.05em;
     }
 
-    .contact-info > p {
-      margin-top: 17px;
-      max-width: 390px;
-
-      color: #aab1c0;
-      line-height: 1.75;
-      font-size: 0.9rem;
+    .contact-info p {
+      margin-top: 20px;
+      color: #a8afbd;
+      font-size: 0.86rem;
     }
 
-    .contact-points {
-      margin-top: 35px;
+    .contact-meta {
+      margin-top: 40px;
       display: grid;
-      gap: 17px;
+      gap: 16px;
     }
 
-    .contact-point {
+    .contact-meta-item {
       display: flex;
       gap: 12px;
-      align-items: flex-start;
+      align-items: center;
+      color: #dfe2e8;
+      font-size: 0.77rem;
     }
 
-    .contact-point-icon {
-      width: 31px;
-      height: 31px;
-
-      flex: 0 0 auto;
-
+    .contact-meta-icon {
+      width: 30px;
+      height: 30px;
       display: grid;
       place-items: center;
-
       border-radius: 9px;
-      background: rgba(255,255,255,0.08);
-
-      color: #aebcff;
-      font-size: 0.72rem;
-      font-weight: 900;
+      background: rgba(255,255,255,0.07);
     }
 
-    .contact-point strong {
-      display: block;
-      font-size: 0.8rem;
-    }
-
-    .contact-point span {
-      display: block;
-      margin-top: 2px;
-      color: #858d9e;
-      font-size: 0.72rem;
-    }
-
-    .contact-form {
+    .contact-form-wrap {
       padding: 48px;
       background: white;
     }
 
-    .form-grid {
+    .contact-form {
+      display: grid;
+      gap: 17px;
+    }
+
+    .form-row {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 14px;
     }
 
     .field {
@@ -1338,60 +995,65 @@
       gap: 7px;
     }
 
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
     .field label {
-      font-size: 0.75rem;
-      font-weight: 750;
-      color: #555d6b;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #4f5665;
     }
 
     .field input,
     .field textarea,
     .field select {
       width: 100%;
-
-      padding: 12px 13px;
-
       border: 1px solid var(--border);
-      border-radius: 11px;
-
-      outline: none;
-
       background: #fbfcfe;
       color: var(--text);
-
-      font-size: 0.84rem;
-
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .field textarea {
-      min-height: 125px;
-      resize: vertical;
+      border-radius: 11px;
+      padding: 12px 13px;
+      outline: none;
+      transition: 0.2s ease;
     }
 
     .field input:focus,
     .field textarea:focus,
     .field select:focus {
-      border-color: rgba(65,105,255,0.65);
-      box-shadow: 0 0 0 4px rgba(65,105,255,0.09);
+      border-color: #9aacff;
+      box-shadow: 0 0 0 4px rgba(65,105,255,0.08);
       background: white;
     }
 
-    .form-submit {
-      margin-top: 18px;
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
     }
 
-    .form-note {
-      margin-top: 10px;
-      color: #89909d;
-      font-size: 0.7rem;
+    .form-status {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 11px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .form-status.success {
+      display: block;
+      color: #19734b;
+      background: #eefaf4;
+      border: 1px solid #ccebdc;
+    }
+
+    .form-status.error {
+      display: block;
+      color: #a23b3b;
+      background: #fff1f1;
+      border: 1px solid #f0cccc;
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none !important;
     }
 
     /* =========================
@@ -1400,9 +1062,8 @@
 
     footer {
       padding: 30px 0;
-
       border-top: 1px solid var(--border);
-      background: #f3f4f8;
+      background: white;
     }
 
     .footer-inner {
@@ -1413,8 +1074,8 @@
     }
 
     .footer-copy {
-      color: #838a98;
-      font-size: 0.72rem;
+      color: #858c9a;
+      font-size: 0.7rem;
     }
 
     .footer-links {
@@ -1423,8 +1084,8 @@
     }
 
     .footer-links a {
-      color: #656d7c;
-      font-size: 0.72rem;
+      color: #697181;
+      font-size: 0.7rem;
       font-weight: 700;
     }
 
@@ -1435,286 +1096,161 @@
     .modal {
       position: fixed;
       inset: 0;
-      z-index: 2000;
-
-      display: flex;
+      z-index: 3000;
+      display: none;
       align-items: center;
       justify-content: center;
-
       padding: 20px;
-
-      background: rgba(10,12,18,0.62);
-      backdrop-filter: blur(8px);
-
-      opacity: 0;
-      visibility: hidden;
-
-      transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease;
+      background: rgba(7, 9, 14, 0.65);
+      backdrop-filter: blur(12px);
     }
 
     .modal.active {
-      opacity: 1;
-      visibility: visible;
+      display: flex;
     }
 
     .modal-box {
-      position: relative;
-
-      width: min(650px, 100%);
+      width: min(680px, 100%);
       max-height: 90vh;
       overflow-y: auto;
-
-      padding: 32px;
-
-      border-radius: 25px;
-
+      border-radius: 24px;
       background: white;
-      box-shadow: 0 35px 100px rgba(0,0,0,0.25);
-
-      transform: translateY(12px) scale(0.98);
-      transition: transform 0.2s ease;
+      box-shadow: 0 30px 100px rgba(0,0,0,0.25);
+      position: relative;
     }
 
-    .modal.active .modal-box {
-      transform: translateY(0) scale(1);
+    .modal-head {
+      padding: 28px 30px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-
-      width: 36px;
-      height: 36px;
-
-      display: grid;
-      place-items: center;
-
-      border: 1px solid var(--border);
-      border-radius: 10px;
-
-      background: white;
-      color: #555;
-
-      font-size: 1.2rem;
-    }
-
-    .modal-header {
-      padding-right: 45px;
-      margin-bottom: 25px;
-    }
-
-    .modal-header h2 {
-      font-size: 1.8rem;
+    .modal-head h2 {
+      font-size: 1.7rem;
       letter-spacing: -0.04em;
     }
 
-    .modal-header p {
-      margin-top: 6px;
+    .modal-head p {
+      margin-top: 5px;
       color: var(--muted);
-      font-size: 0.83rem;
+      font-size: 0.78rem;
+    }
+
+    .modal-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #f0f2f7;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .modal-form {
+      padding: 25px 30px 30px;
     }
 
     /* =========================
        CHAT
     ========================= */
 
-    .chat-toggle {
+    .chat-demo {
       position: fixed;
-      right: 24px;
-      bottom: 24px;
-      z-index: 1100;
-
-      width: 52px;
-      height: 52px;
-
-      display: grid;
-      place-items: center;
-
-      border: 0;
-      border-radius: 16px;
-
-      color: white;
-      background: var(--text);
-
-      box-shadow:
-        0 14px 35px rgba(15,18,25,0.22);
-
-      font-weight: 900;
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1200;
     }
 
-    .chat-toggle:hover {
-      transform: translateY(-3px);
-      background: #282d39;
-    }
-
-    .chat-panel {
-      position: fixed;
-      right: 24px;
-      bottom: 88px;
-      z-index: 1100;
-
-      width: min(350px, calc(100% - 30px));
-
-      border: 1px solid var(--border);
-      border-radius: 22px;
-
-      background: white;
-
-      box-shadow:
-        0 25px 70px rgba(20,25,40,0.18);
-
-      overflow: hidden;
-
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-
-      transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .chat-panel.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .chat-header {
-      padding: 17px 18px;
-
+    .chat-button {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 9px;
+      padding: 12px 15px;
+      border-radius: 999px;
+      color: white;
+      background: var(--dark);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+      cursor: pointer;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
 
+    .chat-button span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #68e19b;
+      box-shadow: 0 0 0 4px rgba(104,225,155,0.1);
+    }
+
+    .chat-box {
+      display: none;
+      width: 300px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.16);
+    }
+
+    .chat-box.active {
+      display: block;
+    }
+
+    .chat-head {
+      padding: 15px 17px;
       color: white;
       background: var(--dark);
     }
 
-    .chat-header strong {
-      font-size: 0.82rem;
+    .chat-head strong {
+      display: block;
+      font-size: 0.78rem;
     }
 
-    .chat-demo {
-      color: #9da5b5;
-      font-size: 0.64rem;
+    .chat-head small {
+      color: #9299a7;
+      font-size: 0.63rem;
     }
 
-    .chat-messages {
-      min-height: 210px;
-      max-height: 260px;
-      overflow-y: auto;
-
-      padding: 16px;
-
-      display: grid;
-      align-content: start;
-      gap: 10px;
+    .chat-body {
+      padding: 15px;
     }
 
     .chat-message {
-      max-width: 88%;
-      padding: 10px 12px;
-
+      padding: 11px 12px;
       border-radius: 12px;
-
       background: #f2f4f8;
-
-      color: #4f5765;
-      font-size: 0.76rem;
-      line-height: 1.55;
+      color: #4d5563;
+      font-size: 0.72rem;
     }
 
-    .chat-message.user {
-      justify-self: end;
-
-      background: #e9edff;
-      color: #33417a;
-    }
-
-    .chat-form {
-      display: flex;
-      gap: 8px;
-
-      padding: 12px;
-      border-top: 1px solid var(--border);
-    }
-
-    .chat-form input {
-      flex: 1;
-
-      min-width: 0;
-
-      padding: 10px 11px;
-
-      border: 1px solid var(--border);
-      border-radius: 10px;
-
-      outline: none;
-      font-size: 0.76rem;
-    }
-
-    .chat-form button {
-      width: 40px;
-
-      border: 0;
-      border-radius: 10px;
-
-      color: white;
-      background: var(--blue);
-
-      font-weight: 900;
+    .chat-demo-note {
+      margin-top: 9px;
+      color: #9299a7;
+      font-size: 0.59rem;
     }
 
     /* =========================
        RESPONSIVE
     ========================= */
 
-    @media (max-width: 1050px) {
-      .nav-links {
-        gap: 18px;
-      }
-
-      .hero-grid {
-        gap: 40px;
-      }
-
-      .automation-grid {
-        gap: 45px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .section {
-        padding: 85px 0;
-      }
-
-      .hero {
-        padding: 80px 0 70px;
-      }
-
+    @media (max-width: 980px) {
       .hero-grid,
-      .automation-grid,
-      .case-study,
+      .ai-grid,
+      .case-grid,
       .about-grid,
-      .contact-wrap {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
       .hero-copy {
-        max-width: 750px;
+        max-width: 760px;
       }
 
       .system-visual {
-        min-height: 440px;
+        max-width: 700px;
       }
 
       .services-grid {
@@ -1725,146 +1261,100 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .process-card:nth-child(2) {
-        border-right: 0;
-      }
-
-      .process-card:nth-child(-n+2) {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .case-visual {
-        min-height: 400px;
-      }
-
       .about-grid {
-        gap: 30px;
+        gap: 35px;
       }
 
-      .contact-info,
-      .contact-form {
-        padding: 38px;
-      }
-
-      .capability-list {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .capability:nth-child(3) {
-        border-right: 0;
-      }
-
-      .capability:nth-child(-n+3) {
-        border-bottom: 1px solid var(--border);
+      .contact-grid {
+        max-width: 800px;
+        margin: 0 auto;
       }
     }
 
     @media (max-width: 760px) {
       .container {
-        width: min(var(--max-width), calc(100% - 28px));
+        width: min(var(--max), calc(100% - 28px));
       }
 
-      .nav {
-        min-height: 68px;
-      }
-
-      .menu-toggle {
-        display: flex;
+      .section {
+        padding: 75px 0;
       }
 
       .nav-links {
+        display: none;
         position: absolute;
-        top: calc(100% + 1px);
+        top: calc(100% + 8px);
         left: 14px;
         right: 14px;
-
-        display: grid;
-        gap: 4px;
-
-        padding: 10px;
-
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        background: rgba(255,255,255,0.97);
         border: 1px solid var(--border);
         border-radius: 16px;
-
-        background: rgba(255,255,255,0.96);
         box-shadow: var(--shadow-md);
-
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-8px);
-
-        transition:
-          opacity 0.2s ease,
-          visibility 0.2s ease,
-          transform 0.2s ease;
       }
 
       .nav-links.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+        display: flex;
       }
 
       .nav-links a {
-        padding: 11px 12px;
-        border-radius: 10px;
-      }
-
-      .nav-links a:hover {
-        background: var(--surface-soft);
+        padding: 12px;
       }
 
       .nav-cta {
         text-align: center;
       }
 
-      .hero h1 {
-        font-size: clamp(2.75rem, 13vw, 4.1rem);
+      .menu-toggle {
+        display: block;
       }
 
-      .hero-text {
-        font-size: 0.98rem;
+      .hero {
+        padding: 65px 0 60px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
       }
 
       .system-visual {
-        min-height: 410px;
+        min-height: 450px;
+        padding: 20px;
       }
 
-      .badge-one {
-        right: -5px;
-      }
-
-      .badge-two {
-        left: -5px;
-      }
-
-      .capability-list {
+      .capability-row {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .capability {
-        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
       }
 
       .capability:nth-child(2n) {
         border-right: 0;
       }
 
-      .capability:nth-child(3) {
-        border-right: 1px solid var(--border);
+      .ai-grid {
+        gap: 40px;
       }
 
-      .capability:nth-child(3),
-      .capability:nth-child(4) {
-        border-bottom: 1px solid var(--border);
+      .browser-body {
+        min-height: 350px;
+        padding: 25px;
       }
 
-      .capability:last-child {
-        grid-column: 1 / -1;
-        border-right: 0;
+      .browser-body h3 {
+        margin-top: 60px;
       }
 
-      .case-details {
+      .browser-product-row {
+        margin-top: 55px;
+      }
+
+      .case-features {
         grid-template-columns: 1fr;
       }
 
@@ -1872,116 +1362,51 @@
         grid-template-columns: 1fr;
       }
 
-      .process-card {
-        min-height: auto;
-        border-right: 0 !important;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .process-card:last-child {
-        border-bottom: 0;
-      }
-
-      .process-card h3 {
-        margin-top: 30px;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .field.full {
-        grid-column: auto;
-      }
-
       .contact-info,
-      .contact-form {
-        padding: 28px 22px;
+      .contact-form-wrap {
+        padding: 30px 22px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
       }
 
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .chat-demo {
+        right: 14px;
+        bottom: 14px;
+      }
     }
 
-    @media (max-width: 520px) {
-      .hero {
-        padding-top: 65px;
-      }
-
-      .hero-actions {
+    @media (max-width: 480px) {
+      .hero-buttons {
         flex-direction: column;
         align-items: stretch;
       }
 
-      .hero-actions .btn {
+      .btn {
         width: 100%;
       }
 
-      .system-card {
-        padding: 17px;
-        border-radius: 21px;
+      .visual-badges {
+        left: 20px;
+        bottom: 20px;
       }
 
-      .flow-node {
-        grid-template-columns: 35px 1fr auto;
-        padding: 12px;
+      .contact {
+        padding: 70px 0;
       }
 
-      .flow-icon {
-        width: 33px;
-        height: 33px;
+      .modal-head {
+        padding: 22px 20px 0;
       }
 
-      .flow-node strong {
-        font-size: 0.78rem;
-      }
-
-      .flow-node small {
-        font-size: 0.67rem;
-      }
-
-      .visual-badge {
-        padding: 9px 11px;
-        font-size: 0.65rem;
-      }
-
-      .badge-one {
-        top: 25px;
-      }
-
-      .badge-two {
-        bottom: 25px;
-      }
-
-      .thug-page {
-        min-height: 320px;
-        padding: 24px;
-      }
-
-      .case-visual {
-        min-height: 350px;
-        padding: 12px;
-        border-radius: 22px;
-      }
-
-      .thug-heading {
-        font-size: 3rem;
-      }
-
-      .modal-box {
-        padding: 24px 18px;
-      }
-
-      .chat-toggle {
-        right: 16px;
-        bottom: 16px;
-      }
-
-      .chat-panel {
-        right: 15px;
-        bottom: 78px;
+      .modal-form {
+        padding: 20px;
       }
     }
   </style>
@@ -1993,24 +1418,13 @@
        HEADER
   ========================= -->
 
-  <header class="header">
+  <header>
     <div class="container nav">
 
-      <a href="#top" class="logo">
+      <a href="#" class="logo">
         <span class="logo-mark">GM</span>
         <span>GM Web Studio</span>
       </a>
-
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open navigation"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
 
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
@@ -2021,40 +1435,48 @@
         <a href="#contact" class="nav-cta">Start a Project</a>
       </nav>
 
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
     </div>
   </header>
 
 
-  <main id="top">
+  <!-- =========================
+       HERO
+  ========================= -->
 
-    <!-- =========================
-         HERO
-    ========================= -->
+  <main>
 
     <section class="hero">
       <div class="container hero-grid">
 
         <div class="hero-copy">
 
-          <div class="eyebrow">
+          <span class="eyebrow">
             Digital studio · Web · AI
-          </div>
+          </span>
 
           <h1>
             Digital experiences
-            <span>built to move.</span>
+            <span class="gradient-text">built to move.</span>
           </h1>
 
-          <p class="hero-text">
-            GM Web Studio builds modern websites, e-commerce experiences
-            and practical AI-powered systems that help businesses operate
-            better and create stronger digital experiences.
+          <p>
+            We build modern websites, e-commerce experiences and practical
+            AI-powered systems that help businesses attract customers,
+            operate smarter and grow.
           </p>
 
-          <div class="hero-actions">
+          <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary">
-              Start a Project
-              <span>→</span>
+              Start a Project →
             </a>
 
             <a href="#work" class="btn btn-secondary">
@@ -2063,7 +1485,6 @@
           </div>
 
           <div class="hero-note">
-            <span class="hero-note-dot"></span>
             Built around your business, not a generic template.
           </div>
 
@@ -2072,76 +1493,48 @@
 
         <div class="system-visual">
 
-          <div class="visual-glow"></div>
-
-          <div class="system-card">
-
-            <div class="system-top">
-              <div class="system-title">
-                Business System
-              </div>
-
-              <div class="system-status">
-                Connected
-              </div>
+          <div class="visual-top">
+            <div class="visual-label">
+              Business System
             </div>
 
-            <div class="system-flow">
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              Designed to work
+            </div>
+          </div>
 
-              <div class="flow-node">
-                <div class="flow-icon">01</div>
+          <div class="workflow">
 
-                <div>
-                  <strong>Customer discovers</strong>
-                  <small>Website, search or social</small>
-                </div>
+            <div class="workflow-card">
+              <div class="workflow-number">01</div>
+              <h3>Customer discovers</h3>
+              <p>Your website creates the first impression.</p>
+            </div>
 
-                <div class="flow-arrow">→</div>
-              </div>
+            <div class="workflow-card">
+              <div class="workflow-number">02</div>
+              <h3>AI captures the lead</h3>
+              <p>Important customer information is collected.</p>
+            </div>
 
-              <div class="flow-node">
-                <div class="flow-icon">02</div>
+            <div class="workflow-card">
+              <div class="workflow-number">03</div>
+              <h3>Automation takes over</h3>
+              <p>Repetitive work happens automatically.</p>
+            </div>
 
-                <div>
-                  <strong>AI captures the lead</strong>
-                  <small>Questions answered automatically</small>
-                </div>
-
-                <div class="flow-arrow">→</div>
-              </div>
-
-              <div class="flow-node">
-                <div class="flow-icon">03</div>
-
-                <div>
-                  <strong>Automation takes over</strong>
-                  <small>Follow-up and workflow</small>
-                </div>
-
-                <div class="flow-arrow">→</div>
-              </div>
-
-              <div class="flow-node">
-                <div class="flow-icon">04</div>
-
-                <div>
-                  <strong>Business gets the opportunity</strong>
-                  <small>Lead, booking or customer</small>
-                </div>
-
-                <div class="flow-arrow">✓</div>
-              </div>
-
+            <div class="workflow-card">
+              <div class="workflow-number">04</div>
+              <h3>Business gets the opportunity</h3>
+              <p>Leads are organized and ready for follow-up.</p>
             </div>
 
           </div>
 
-          <div class="visual-badge badge-one">
-            Web + AI
-          </div>
-
-          <div class="visual-badge badge-two">
-            Designed to work
+          <div class="visual-badges">
+            <div class="visual-badge">Web + AI</div>
+            <div class="visual-badge">Built for growth</div>
           </div>
 
         </div>
@@ -2155,31 +1548,13 @@
     ========================= -->
 
     <section class="capabilities">
-      <div class="container">
+      <div class="container capability-row">
 
-        <div class="capability-list">
-
-          <div class="capability">
-            Strategy
-          </div>
-
-          <div class="capability">
-            Design
-          </div>
-
-          <div class="capability">
-            Development
-          </div>
-
-          <div class="capability">
-            E-Commerce
-          </div>
-
-          <div class="capability">
-            Automation
-          </div>
-
-        </div>
+        <div class="capability">Strategy</div>
+        <div class="capability">Design</div>
+        <div class="capability">Development</div>
+        <div class="capability">E-Commerce</div>
+        <div class="capability">Automation</div>
 
       </div>
     </section>
@@ -2193,20 +1568,20 @@
 
       <div class="container">
 
-        <div class="section-header">
+        <div class="section-heading">
 
-          <div class="eyebrow">
+          <span class="eyebrow">
             What we build
-          </div>
+          </span>
 
-          <h2 class="section-title">
-            Digital work that has a purpose.
+          <h2>
+            Digital systems that do more than look good.
           </h2>
 
-          <p class="section-description">
-            From the first page a customer sees to the systems working
-            behind the scenes, we build practical digital experiences
-            around how your business actually operates.
+          <p>
+            From the first page visitors see to the systems working behind
+            the scenes, we create digital experiences designed around
+            business goals.
           </p>
 
         </div>
@@ -2216,87 +1591,54 @@
 
           <article class="service-card">
 
-            <div class="service-number">
-              01 / WEB
-            </div>
+            <div class="service-icon">01</div>
 
-            <div class="service-icon">
-              &lt;/&gt;
-            </div>
-
-            <h3>
-              Websites
-            </h3>
+            <h3>Websites</h3>
 
             <p>
               Modern, responsive websites designed to communicate your
-              business clearly and turn attention into action.
+              business clearly and turn visitors into opportunities.
             </p>
 
-            <ul class="service-list">
-              <li>Responsive design</li>
-              <li>Business websites</li>
-              <li>Landing pages</li>
-              <li>Conversion-focused structure</li>
-            </ul>
+            <div class="service-link">
+              Explore websites →
+            </div>
 
           </article>
 
 
           <article class="service-card">
 
-            <div class="service-number">
-              02 / COMMERCE
-            </div>
+            <div class="service-icon">02</div>
 
-            <div class="service-icon">
-              $
-            </div>
-
-            <h3>
-              E-Commerce
-            </h3>
+            <h3>E-Commerce</h3>
 
             <p>
-              Complete online shopping experiences built around products,
-              customers, payments and a smooth buying journey.
+              Complete online stores with product catalogues, carts,
+              payments and customer-focused buying experiences.
             </p>
 
-            <ul class="service-list">
-              <li>Product catalogues</li>
-              <li>Shopping carts</li>
-              <li>Payment integrations</li>
-              <li>Order workflows</li>
-            </ul>
+            <div class="service-link">
+              Build an online store →
+            </div>
 
           </article>
 
 
           <article class="service-card">
 
-            <div class="service-number">
-              03 / SYSTEMS
-            </div>
+            <div class="service-icon">03</div>
 
-            <div class="service-icon">
-              AI
-            </div>
-
-            <h3>
-              AI Automation
-            </h3>
+            <h3>AI Automation</h3>
 
             <p>
-              Practical AI and automation systems that can reduce repetitive
-              work and help businesses respond to customers faster.
+              Practical AI systems that capture leads, answer questions,
+              organize information and automate repetitive business work.
             </p>
 
-            <ul class="service-list">
-              <li>AI customer assistants</li>
-              <li>Lead capture & qualification</li>
-              <li>Automated follow-up</li>
-              <li>Business integrations</li>
-            </ul>
+            <div class="service-link">
+              Automate your business →
+            </div>
 
           </article>
 
@@ -2310,45 +1652,45 @@
          AI AUTOMATION
     ========================= -->
 
-    <section class="section automation-section" id="automation">
+    <section class="section ai-section" id="automation">
 
-      <div class="container automation-grid">
+      <div class="container ai-grid">
 
-        <div class="automation-copy">
+        <div class="ai-copy">
 
-          <div class="eyebrow">
-            Automation
-          </div>
+          <span class="eyebrow">
+            AI Automation
+          </span>
 
           <h2>
-            Make your business work smarter.
+            Make your business
+            <span class="gradient-text">work smarter.</span>
           </h2>
 
           <p>
-            A modern website can attract the customer. Automation can help
-            handle what happens next. We are building toward systems that
-            connect websites, AI, lead capture, follow-up and business tools
-            into one practical workflow.
+            We connect websites, AI and business tools to create systems
+            that handle repetitive tasks and help businesses respond to
+            opportunities faster.
           </p>
 
-          <div class="automation-points">
+          <div class="ai-list">
 
-            <div class="automation-point">
+            <div class="ai-list-item">
               <span>✓</span>
               AI customer assistants
             </div>
 
-            <div class="automation-point">
+            <div class="ai-list-item">
               <span>✓</span>
               Lead capture and qualification
             </div>
 
-            <div class="automation-point">
+            <div class="ai-list-item">
               <span>✓</span>
               Automated customer follow-up
             </div>
 
-            <div class="automation-point">
+            <div class="ai-list-item">
               <span>✓</span>
               CRM, booking and API integrations
             </div>
@@ -2358,60 +1700,42 @@
         </div>
 
 
-        <div class="workflow">
+        <div class="ai-workflow">
 
-          <div class="workflow-label">
-            Example business workflow
+          <div class="ai-window-top">
+            <span class="ai-window-dot"></span>
+            <span class="ai-window-dot"></span>
+            <span class="ai-window-dot"></span>
           </div>
 
-          <div class="workflow-step">
+          <div class="ai-flow">
 
-            <div class="workflow-number">
-              01
+            <div class="ai-flow-card">
+              <small>New inquiry</small>
+              <strong>
+                "I need an online store for my clothing brand."
+              </strong>
             </div>
 
-            <div>
-              <strong>Customer visits the website</strong>
-              <p>They discover the business and ask a question.</p>
+            <div class="ai-flow-card">
+              <small>AI analysis</small>
+              <strong>
+                E-Commerce · High intent · New lead
+              </strong>
             </div>
 
-          </div>
-
-          <div class="workflow-step">
-
-            <div class="workflow-number">
-              02
+            <div class="ai-flow-card">
+              <small>Automation</small>
+              <strong>
+                Lead summarized → organized → ready for follow-up
+              </strong>
             </div>
 
-            <div>
-              <strong>AI responds</strong>
-              <p>Common questions can be handled immediately.</p>
-            </div>
-
-          </div>
-
-          <div class="workflow-step">
-
-            <div class="workflow-number">
-              03
-            </div>
-
-            <div>
-              <strong>Lead is qualified</strong>
-              <p>The system collects the information the business needs.</p>
-            </div>
-
-          </div>
-
-          <div class="workflow-step">
-
-            <div class="workflow-number">
-              04
-            </div>
-
-            <div>
-              <strong>Follow-up happens</strong>
-              <p>The next step can trigger automatically.</p>
+            <div class="ai-flow-card">
+              <small>Business action</small>
+              <strong>
+                Recommended next step: Discovery call
+              </strong>
             </div>
 
           </div>
@@ -2424,100 +1748,64 @@
 
 
     <!-- =========================
-         WORK / CASE STUDY
+         CASE STUDY
     ========================= -->
 
-    <section class="section" id="work">
+    <section class="section case-study" id="work">
 
       <div class="container">
 
-        <div class="section-header">
+        <div class="section-heading">
 
-          <div class="eyebrow">
+          <span class="eyebrow">
             Selected work
-          </div>
+          </span>
 
-          <h2 class="section-title">
-            One real project. Built from the ground up.
+          <h2>
+            Built for the real world.
           </h2>
 
-          <p class="section-description">
-            A live e-commerce project for a growing streetwear brand.
-            Designed, developed and deployed as a complete digital
-            shopping experience.
+          <p>
+            A real e-commerce project designed, developed and deployed
+            for a growing streetwear brand.
           </p>
 
         </div>
 
 
-        <div class="case-study">
+        <div class="case-grid">
 
-          <div class="case-visual">
+          <div class="browser">
 
-            <div class="browser">
+            <div class="browser-bar">
 
-              <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
 
-                <span class="browser-dot"></span>
-                <span class="browser-dot"></span>
-                <span class="browser-dot"></span>
-
-                <div class="browser-url">
-                  thugszn.netlify.app
-                </div>
-
+              <div class="browser-address">
+                thugszn.netlify.app
               </div>
 
+            </div>
 
-              <div class="thug-page">
+            <div class="browser-body">
 
-                <div class="thug-brand">
+              <div class="browser-brand">
+                THUG SZN
+              </div>
 
-                  <span>THUG SZN</span>
+              <h3>
+                BUILT<br />
+                DIFFERENT.
+              </h3>
 
-                  <div class="thug-nav">
-                    SHOP
-                    ABOUT
-                    CART
-                  </div>
+              <div class="browser-line"></div>
 
-                </div>
-
-
-                <div class="thug-content">
-
-                  <div class="thug-mini">
-                    BUILT DIFFERENT
-                  </div>
-
-                  <div class="thug-heading">
-                    THUG<br />
-                    SZN
-                  </div>
-
-                  <p class="thug-copy">
-                    Streetwear built around pressure, mindset and
-                    staying focused.
-                  </p>
-
-                  <span class="thug-button">
-                    SHOP COLLECTION
-                  </span>
-
-                </div>
-
-                <div
-                  style="
-                    display:flex;
-                    justify-content:space-between;
-                    color:#666;
-                    font-size:.58rem;
-                  "
-                >
-                  <span>WORLDWIDE</span>
-                  <span>EST. 2026</span>
-                </div>
-
+              <div class="browser-product-row">
+                <div class="mini-product"></div>
+                <div class="mini-product"></div>
+                <div class="mini-product"></div>
               </div>
 
             </div>
@@ -2525,11 +1813,11 @@
           </div>
 
 
-          <div class="case-content">
+          <div class="case-copy">
 
-            <div class="eyebrow">
+            <span class="eyebrow">
               THUG SZN
-            </div>
+            </span>
 
             <h3>
               Streetwear built for the digital world.
@@ -2537,42 +1825,34 @@
 
             <p>
               A complete e-commerce experience designed and developed
-              for a growing fashion brand. The project combines product
-              presentation, cart functionality, payment processing,
-              ordering and deployment into one customer journey.
+              for a growing streetwear brand.
             </p>
 
 
-            <div class="case-details">
+            <div class="case-features">
 
-              <div class="case-detail">
-                <strong>Responsive Website</strong>
-                <span>Desktop, tablet & mobile</span>
+              <div class="case-feature">
+                Responsive Website
               </div>
 
-              <div class="case-detail">
-                <strong>Product Catalogue</strong>
-                <span>Structured product experience</span>
+              <div class="case-feature">
+                Product Catalogue
               </div>
 
-              <div class="case-detail">
-                <strong>Shopping Cart</strong>
-                <span>Client-side cart functionality</span>
+              <div class="case-feature">
+                Shopping Cart
               </div>
 
-              <div class="case-detail">
-                <strong>Paystack Payments</strong>
-                <span>Payment integration</span>
+              <div class="case-feature">
+                Paystack Payments
               </div>
 
-              <div class="case-detail">
-                <strong>WhatsApp Ordering</strong>
-                <span>Direct customer order flow</span>
+              <div class="case-feature">
+                WhatsApp Ordering
               </div>
 
-              <div class="case-detail">
-                <strong>Netlify Deployment</strong>
-                <span>Live production deployment</span>
+              <div class="case-feature">
+                Netlify Deployment
               </div>
 
             </div>
@@ -2603,6 +1883,7 @@
         </div>
 
       </div>
+
     </section>
 
 
@@ -2614,19 +1895,19 @@
 
       <div class="container">
 
-        <div class="section-header">
+        <div class="section-heading">
 
-          <div class="eyebrow">
+          <span class="eyebrow">
             How we work
-          </div>
+          </span>
 
-          <h2 class="section-title">
+          <h2>
             Simple process. Serious execution.
           </h2>
 
-          <p class="section-description">
-            Every project starts with understanding the business,
-            then turning that understanding into a clear digital system.
+          <p>
+            Every project starts with understanding the business before
+            moving into design, development and launch.
           </p>
 
         </div>
@@ -2637,16 +1918,15 @@
           <article class="process-card">
 
             <div class="process-number">
-              01
+              01 · DISCOVER
             </div>
 
             <h3>
-              Discover
+              Understand the business
             </h3>
 
             <p>
-              Understand your business, audience, goals and what the
-              project actually needs to achieve.
+              Goals, audience, offer, requirements and opportunities.
             </p>
 
           </article>
@@ -2655,16 +1935,15 @@
           <article class="process-card">
 
             <div class="process-number">
-              02
+              02 · DESIGN
             </div>
 
             <h3>
-              Design
+              Shape the experience
             </h3>
 
             <p>
-              Create a clear visual direction and user experience before
-              development begins.
+              Structure, visual direction and user experience.
             </p>
 
           </article>
@@ -2673,16 +1952,15 @@
           <article class="process-card">
 
             <div class="process-number">
-              03
+              03 · BUILD
             </div>
 
             <h3>
-              Build
+              Turn the idea into reality
             </h3>
 
             <p>
-              Develop the website, e-commerce features or business
-              workflow around the agreed requirements.
+              Development, integrations, testing and refinement.
             </p>
 
           </article>
@@ -2691,16 +1969,15 @@
           <article class="process-card">
 
             <div class="process-number">
-              04
+              04 · LAUNCH
             </div>
 
             <h3>
-              Launch
+              Put it to work
             </h3>
 
             <p>
-              Test the experience, deploy the project and make sure the
-              final system is ready for real customers.
+              Deployment, final checks and handoff.
             </p>
 
           </article>
@@ -2708,6 +1985,7 @@
         </div>
 
       </div>
+
     </section>
 
 
@@ -2715,62 +1993,53 @@
          ABOUT
     ========================= -->
 
-    <section class="section" id="about">
+    <section class="section about" id="about">
 
       <div class="container about-grid">
 
-        <div>
+        <div class="about-title">
 
-          <div class="eyebrow">
+          <span class="eyebrow">
             About GM
-          </div>
+          </span>
 
-          <h2 class="about-title">
-            Small studio.<br />
-            Big digital ideas.
+          <h2>
+            Small studio.
+            <span class="gradient-text">
+              Big digital ideas.
+            </span>
           </h2>
 
         </div>
 
 
-        <div>
+        <div class="about-copy">
 
-          <p class="about-text">
-            GM Web Studio is focused on building practical digital
-            experiences for businesses — combining modern web design,
-            development, e-commerce and AI automation.
+          <p>
+            GM Web Studio is focused on creating practical digital
+            experiences for businesses that want to build a stronger
+            online presence.
           </p>
 
-          <p class="about-text">
-            The goal is simple: create technology that is useful,
-            understandable and connected to the way a business actually
-            works.
+          <p>
+            We combine modern web design, development, e-commerce and
+            practical AI automation to create systems that are useful,
+            scalable and built around the way a business actually works.
           </p>
 
+          <p>
+            The goal isn't simply to launch another website.
+            The goal is to build something that helps the business move.
+          </p>
 
-          <div class="about-tags">
-
-            <span class="about-tag">
-              Web Development
-            </span>
-
-            <span class="about-tag">
-              E-Commerce
-            </span>
-
-            <span class="about-tag">
-              AI Automation
-            </span>
-
-            <span class="about-tag">
-              Business Systems
-            </span>
-
+          <div class="about-highlight">
+            Web development today. AI-powered business systems tomorrow.
           </div>
 
         </div>
 
       </div>
+
     </section>
 
 
@@ -2778,76 +2047,59 @@
          CONTACT
     ========================= -->
 
-    <section class="contact-section" id="contact">
+    <section class="contact" id="contact">
 
       <div class="container">
 
-        <div class="contact-wrap">
+        <div class="contact-grid">
 
           <div class="contact-info">
 
-            <div class="eyebrow">
+            <span class="eyebrow">
               Start a project
-            </div>
+            </span>
 
             <h2>
-              Have an idea?
-              Let's build it.
+              Let's build something useful.
             </h2>
 
             <p>
-              Tell us about your business, what you need and what you're
-              trying to achieve. We'll use the information to understand
-              the project before discussing the next step.
+              Tell us what you're building, what you need and where you
+              want to go. We'll review your project and get back to you.
             </p>
 
 
-            <div class="contact-points">
+            <div class="contact-meta">
 
-              <div class="contact-point">
+              <div class="contact-meta-item">
 
-                <div class="contact-point-icon">
-                  01
+                <div class="contact-meta-icon">
+                  @
                 </div>
 
-                <div>
-                  <strong>Tell us what you need</strong>
-                  <span>
-                    Website, e-commerce or automation.
-                  </span>
-                </div>
+                gmwebstudio40@gmail.com
 
               </div>
 
 
-              <div class="contact-point">
+              <div class="contact-meta-item">
 
-                <div class="contact-point-icon">
-                  02
+                <div class="contact-meta-icon">
+                  AI
                 </div>
 
-                <div>
-                  <strong>We review the project</strong>
-                  <span>
-                    Requirements and goals come first.
-                  </span>
-                </div>
+                Websites · E-Commerce · AI Automation
 
               </div>
 
 
-              <div class="contact-point">
+              <div class="contact-meta-item">
 
-                <div class="contact-point-icon">
-                  03
+                <div class="contact-meta-icon">
+                  ✓
                 </div>
 
-                <div>
-                  <strong>Plan the next step</strong>
-                  <span>
-                    Scope, timeline and delivery.
-                  </span>
-                </div>
+                International projects welcome
 
               </div>
 
@@ -2856,9 +2108,10 @@
           </div>
 
 
-          <div class="contact-form">
+          <div class="contact-form-wrap">
 
             <form
+              class="contact-form"
               action="https://formspree.io/f/mwlpzzwv"
               method="POST"
             >
@@ -2869,52 +2122,52 @@
                 value="New GM Web Studio Project Inquiry"
               />
 
-              <div class="form-grid">
+              <div class="form-row">
 
                 <div class="field">
-
-                  <label for="name">
+                  <label for="full-name">
                     Full name
                   </label>
 
                   <input
-                    id="name"
-                    name="name"
+                    id="full-name"
                     type="text"
+                    name="name"
                     placeholder="Your name"
                     required
                   />
-
                 </div>
 
 
                 <div class="field">
-
                   <label for="email">
                     Email
                   </label>
 
                   <input
                     id="email"
-                    name="email"
                     type="email"
+                    name="email"
                     placeholder="you@example.com"
                     required
                   />
-
                 </div>
 
+              </div>
+
+
+              <div class="form-row">
 
                 <div class="field">
 
                   <label for="business">
-                    Business / brand
+                    Business / Brand
                   </label>
 
                   <input
                     id="business"
-                    name="business"
                     type="text"
+                    name="business"
                     placeholder="Business name"
                   />
 
@@ -2949,8 +2202,8 @@
                       AI Automation
                     </option>
 
-                    <option value="Website + Automation">
-                      Website + Automation
+                    <option value="Website + AI Automation">
+                      Website + AI Automation
                     </option>
 
                     <option value="Other">
@@ -2961,39 +2214,36 @@
 
                 </div>
 
+              </div>
 
-                <div class="field full">
 
-                  <label for="details">
-                    Tell us about the project
-                  </label>
+              <div class="field">
 
-                  <textarea
-                    id="details"
-                    name="project_details"
-                    placeholder="What are you trying to build? What should it do? What problem are you trying to solve?"
-                    required
-                  ></textarea>
+                <label for="details">
+                  Project details
+                </label>
 
-                </div>
+                <textarea
+                  id="details"
+                  name="message"
+                  placeholder="Tell us about your business, what you want to build, your goals and any important requirements."
+                  required
+                ></textarea>
 
               </div>
 
 
-              <div class="form-submit">
+              <button
+                type="submit"
+                class="btn btn-primary"
+              >
+                Send Project Inquiry →
+              </button>
 
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                >
-                  Send Project Inquiry →
-                </button>
-
-              </div>
-
-              <p class="form-note">
-                Your information is used to review your project inquiry.
-              </p>
+              <div
+                class="form-status"
+                aria-live="polite"
+              ></div>
 
             </form>
 
@@ -3002,6 +2252,7 @@
         </div>
 
       </div>
+
     </section>
 
   </main>
@@ -3016,7 +2267,7 @@
     <div class="container footer-inner">
 
       <div class="footer-copy">
-        © 2026 GM Web Studio. Built with purpose.
+        © 2026 GM Web Studio. All rights reserved.
       </div>
 
       <div class="footer-links">
@@ -3042,155 +2293,155 @@
 
     <div class="modal-box">
 
-      <button
-        class="modal-close"
-        id="modalClose"
-        aria-label="Close project form"
-      >
-        ×
-      </button>
+      <div class="modal-head">
 
-      <div class="modal-header">
+        <div>
+          <h2>Start a project</h2>
 
-        <div class="eyebrow">
-          Start a project
+          <p>
+            Tell us what you're looking to build.
+          </p>
         </div>
 
-        <h2>
-          Tell us what you're building.
-        </h2>
-
-        <p>
-          Give us a quick overview and we'll understand the project
-          before discussing the next step.
-        </p>
+        <button
+          class="modal-close"
+          id="modalClose"
+          aria-label="Close"
+        >
+          ×
+        </button>
 
       </div>
 
 
-      <form
-        action="https://formspree.io/f/mwlpzzwv"
-        method="POST"
-      >
+      <div class="modal-form">
 
-        <input
-          type="hidden"
-          name="_subject"
-          value="New GM Web Studio Project Inquiry"
-        />
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/mwlpzzwv"
+          method="POST"
+        >
 
-        <div class="form-grid">
+          <input
+            type="hidden"
+            name="_subject"
+            value="New GM Web Studio Project Inquiry"
+          />
 
-          <div class="field">
+          <div class="form-row">
 
-            <label for="modalName">
-              Full name
-            </label>
+            <div class="field">
 
-            <input
-              id="modalName"
-              name="name"
-              type="text"
-              placeholder="Your name"
-              required
-            />
+              <label for="modal-name">
+                Full name
+              </label>
+
+              <input
+                id="modal-name"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="modal-email">
+                Email
+              </label>
+
+              <input
+                id="modal-email"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="field">
+
+              <label for="modal-business">
+                Business / Brand
+              </label>
+
+              <input
+                id="modal-business"
+                type="text"
+                name="business"
+                placeholder="Business name"
+              />
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="modal-service">
+                Service
+              </label>
+
+              <select
+                id="modal-service"
+                name="service"
+                required
+              >
+
+                <option value="">
+                  Select a service
+                </option>
+
+                <option value="Website">
+                  Website
+                </option>
+
+                <option value="E-Commerce">
+                  E-Commerce
+                </option>
+
+                <option value="AI Automation">
+                  AI Automation
+                </option>
+
+                <option value="Website + AI Automation">
+                  Website + AI Automation
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
 
           </div>
 
 
           <div class="field">
 
-            <label for="modalEmail">
-              Email
-            </label>
-
-            <input
-              id="modalEmail"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              required
-            />
-
-          </div>
-
-
-          <div class="field">
-
-            <label for="modalBusiness">
-              Business / brand
-            </label>
-
-            <input
-              id="modalBusiness"
-              name="business"
-              type="text"
-              placeholder="Business name"
-            />
-
-          </div>
-
-
-          <div class="field">
-
-            <label for="modalService">
-              Service
-            </label>
-
-            <select
-              id="modalService"
-              name="service"
-              required
-            >
-
-              <option value="">
-                Select a service
-              </option>
-
-              <option value="Website">
-                Website
-              </option>
-
-              <option value="E-Commerce">
-                E-Commerce
-              </option>
-
-              <option value="AI Automation">
-                AI Automation
-              </option>
-
-              <option value="Website + Automation">
-                Website + Automation
-              </option>
-
-              <option value="Other">
-                Other
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <div class="field full">
-
-            <label for="modalDetails">
+            <label for="modal-message">
               Project details
             </label>
 
             <textarea
-              id="modalDetails"
-              name="project_details"
-              placeholder="Tell us what you want to build..."
+              id="modal-message"
+              name="message"
+              placeholder="Tell us about your project..."
               required
             ></textarea>
 
           </div>
 
-        </div>
-
-
-        <div class="form-submit">
 
           <button
             type="submit"
@@ -3199,9 +2450,14 @@
             Send Inquiry →
           </button>
 
-        </div>
+          <div
+            class="form-status"
+            aria-live="polite"
+          ></div>
 
-      </form>
+        </form>
+
+      </div>
 
     </div>
 
@@ -3209,66 +2465,52 @@
 
 
   <!-- =========================
-       CHAT
+       CHAT DEMO
   ========================= -->
 
-  <button
-    class="chat-toggle"
-    id="chatToggle"
-    aria-label="Open GM Web Assistant"
-  >
-    ✦
-  </button>
-
-
-  <div
-    class="chat-panel"
-    id="chatPanel"
-    aria-hidden="true"
-  >
-
-    <div class="chat-header">
-
-      <div>
-        <strong>GM Web Assistant</strong>
-        <div class="chat-demo">
-          Interactive demo
-        </div>
-      </div>
-
-    </div>
-
+  <div class="chat-demo">
 
     <div
-      class="chat-messages"
-      id="chatMessages"
+      class="chat-box"
+      id="chatBox"
     >
 
-      <div class="chat-message">
-        Hey! I'm the GM Web Studio demo assistant. Ask about
-        websites, e-commerce or AI automation.
+      <div class="chat-head">
+
+        <strong>
+          GM Assistant
+        </strong>
+
+        <small>
+          Interactive demo
+        </small>
+
+      </div>
+
+      <div class="chat-body">
+
+        <div class="chat-message">
+          Hi! I'm the GM Web Studio demo assistant.
+          In a future version, I'll be connected to a real AI system
+          that can answer questions and capture leads.
+        </div>
+
+        <div class="chat-demo-note">
+          Demo only — not connected to live AI yet.
+        </div>
+
       </div>
 
     </div>
 
 
-    <form
-      class="chat-form"
-      id="chatForm"
+    <button
+      class="chat-button"
+      id="chatButton"
     >
-
-      <input
-        id="chatInput"
-        type="text"
-        placeholder="Ask something..."
-        autocomplete="off"
-      />
-
-      <button type="submit">
-        →
-      </button>
-
-    </form>
+      <span></span>
+      Ask GM Assistant
+    </button>
 
   </div>
 
@@ -3286,40 +2528,43 @@
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
-    menuToggle.addEventListener("click", () => {
+    if (menuToggle && navLinks) {
 
-      const isOpen =
-        navLinks.classList.toggle("active");
+      menuToggle.addEventListener("click", () => {
 
-      menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-
-    });
-
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-
-      link.addEventListener("click", () => {
-
-        navLinks.classList.remove("active");
+        const isOpen = navLinks.classList.toggle("active");
 
         menuToggle.setAttribute(
           "aria-expanded",
-          "false"
+          isOpen ? "true" : "false"
         );
 
       });
 
-    });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("active");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
+
+      });
+
+    }
 
 
     /* =========================
        PROJECT MODAL
     ========================= */
 
-    const modal =
+    const projectModal =
       document.getElementById("projectModal");
 
     const modalClose =
@@ -3328,34 +2573,27 @@
 
     function openProjectModal() {
 
-      modal.classList.add("active");
+      if (!projectModal) return;
 
-      modal.setAttribute(
+      projectModal.classList.add("active");
+
+      projectModal.setAttribute(
         "aria-hidden",
         "false"
       );
 
       document.body.classList.add("modal-open");
 
-      setTimeout(() => {
-
-        const firstInput =
-          document.getElementById("modalName");
-
-        if (firstInput) {
-          firstInput.focus();
-        }
-
-      }, 100);
-
     }
 
 
     function closeProjectModal() {
 
-      modal.classList.remove("active");
+      if (!projectModal) return;
 
-      modal.setAttribute(
+      projectModal.classList.remove("active");
+
+      projectModal.setAttribute(
         "aria-hidden",
         "true"
       );
@@ -3365,60 +2603,30 @@
     }
 
 
-    document.querySelectorAll(
-      'a[href="#contact"]'
-    ).forEach(link => {
+    if (modalClose) {
 
-      link.addEventListener("click", event => {
+      modalClose.addEventListener(
+        "click",
+        closeProjectModal
+      );
 
-        /*
-          On mobile and normal page navigation,
-          the contact section remains accessible.
+    }
 
-          The main nav CTA and hero CTA open
-          the project form modal.
-        */
 
-        const isNavCTA =
-          link.classList.contains("nav-cta");
+    if (projectModal) {
 
-        const isHeroCTA =
-          link.classList.contains("btn-primary");
+      projectModal.addEventListener(
+        "click",
+        event => {
 
-        const isCaseCTA =
-          link.textContent
-            .toLowerCase()
-            .includes("similar");
-
-        if (isNavCTA || isHeroCTA || isCaseCTA) {
-
-          event.preventDefault();
-
-          openProjectModal();
+          if (event.target === projectModal) {
+            closeProjectModal();
+          }
 
         }
+      );
 
-      });
-
-    });
-
-
-    modalClose.addEventListener(
-      "click",
-      closeProjectModal
-    );
-
-
-    modal.addEventListener(
-      "click",
-      event => {
-
-        if (event.target === modal) {
-          closeProjectModal();
-        }
-
-      }
-    );
+    }
 
 
     document.addEventListener(
@@ -3427,7 +2635,8 @@
 
         if (
           event.key === "Escape" &&
-          modal.classList.contains("active")
+          projectModal &&
+          projectModal.classList.contains("active")
         ) {
 
           closeProjectModal();
@@ -3438,170 +2647,259 @@
     );
 
 
+    /*
+      Open the project modal for the main CTA buttons.
+    */
+
+    document.querySelectorAll(
+      ".nav-cta, .btn-primary"
+    ).forEach(button => {
+
+      const text =
+        button.textContent.trim().toLowerCase();
+
+      if (
+        text.includes("start a project") ||
+        text.includes("build something similar")
+      ) {
+
+        button.addEventListener(
+          "click",
+          event => {
+
+            event.preventDefault();
+
+            openProjectModal();
+
+          }
+        );
+
+      }
+
+    });
+
+
+    /* =========================
+       FORMSPREE AJAX SUBMISSION
+    ========================= */
+
+    async function handleFormSubmit(form) {
+
+      const status =
+        form.querySelector(".form-status");
+
+      const submitButton =
+        form.querySelector('button[type="submit"]');
+
+
+      if (!status || !submitButton) {
+        return;
+      }
+
+
+      status.className = "form-status";
+
+      status.textContent = "";
+
+
+      const originalButtonText =
+        submitButton.textContent;
+
+
+      submitButton.disabled = true;
+
+      submitButton.textContent =
+        "Sending...";
+
+
+      try {
+
+        const response =
+          await fetch(
+            form.action,
+            {
+              method: "POST",
+
+              body: new FormData(form),
+
+              headers: {
+                "Accept": "application/json"
+              }
+            }
+          );
+
+
+        if (response.ok) {
+
+          status.className =
+            "form-status success";
+
+          status.textContent =
+            "Thanks — your project inquiry has been received. We'll be in touch soon.";
+
+
+          form.reset();
+
+
+          /*
+            If this form is inside the modal,
+            close the modal after the visitor sees
+            the success message.
+          */
+
+          if (
+            form.closest("#projectModal")
+          ) {
+
+            setTimeout(() => {
+
+              closeProjectModal();
+
+              status.className =
+                "form-status";
+
+              status.textContent = "";
+
+            }, 2800);
+
+          }
+
+
+        } else {
+
+          let errorMessage =
+            "Something went wrong. Please try again.";
+
+          try {
+
+            const data =
+              await response.json();
+
+            if (
+              data &&
+              data.errors &&
+              data.errors.length
+            ) {
+
+              errorMessage =
+                data.errors
+                  .map(error => error.message)
+                  .join(" ");
+
+            }
+
+          } catch (error) {
+            /*
+              Formspree may return a response
+              that is not JSON.
+            */
+          }
+
+
+          status.className =
+            "form-status error";
+
+          status.textContent =
+            errorMessage;
+
+        }
+
+      } catch (error) {
+
+        status.className =
+          "form-status error";
+
+        status.textContent =
+          "Unable to send your inquiry right now. Please try again.";
+
+      } finally {
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          originalButtonText;
+
+      }
+
+    }
+
+
+    /*
+      Connect every Formspree form on the website.
+    */
+
+    document
+      .querySelectorAll(
+        'form[action="https://formspree.io/f/mwlpzzwv"]'
+      )
+      .forEach(form => {
+
+        form.addEventListener(
+          "submit",
+          event => {
+
+            event.preventDefault();
+
+            handleFormSubmit(form);
+
+          }
+        );
+
+      });
+
+
     /* =========================
        DEMO CHAT
     ========================= */
 
-    const chatToggle =
-      document.getElementById("chatToggle");
+    const chatButton =
+      document.getElementById("chatButton");
 
-    const chatPanel =
-      document.getElementById("chatPanel");
-
-    const chatForm =
-      document.getElementById("chatForm");
-
-    const chatInput =
-      document.getElementById("chatInput");
-
-    const chatMessages =
-      document.getElementById("chatMessages");
+    const chatBox =
+      document.getElementById("chatBox");
 
 
-    chatToggle.addEventListener(
-      "click",
-      () => {
+    if (chatButton && chatBox) {
 
-        const isOpen =
-          chatPanel.classList.toggle("active");
+      chatButton.addEventListener(
+        "click",
+        () => {
 
-        chatPanel.setAttribute(
-          "aria-hidden",
-          isOpen ? "false" : "true"
-        );
+          chatBox.classList.toggle("active");
 
-      }
-    );
-
-
-    function addChatMessage(
-      message,
-      user = false
-    ) {
-
-      const div =
-        document.createElement("div");
-
-      div.className =
-        user
-          ? "chat-message user"
-          : "chat-message";
-
-      div.textContent = message;
-
-      chatMessages.appendChild(div);
-
-      chatMessages.scrollTop =
-        chatMessages.scrollHeight;
-
-    }
-
-
-    function getDemoReply(message) {
-
-      const text =
-        message.toLowerCase();
-
-      if (
-        text.includes("website") ||
-        text.includes("web")
-      ) {
-
-        return "We build responsive business websites and landing pages around your goals, content and customers.";
-
-      }
-
-      if (
-        text.includes("ecommerce") ||
-        text.includes("e-commerce") ||
-        text.includes("shop") ||
-        text.includes("store")
-      ) {
-
-        return "Our e-commerce work can include product catalogues, carts, payment integrations and customer order flows.";
-
-      }
-
-      if (
-        text.includes("ai") ||
-        text.includes("automation")
-      ) {
-
-        return "AI automation can connect customer conversations, lead capture, follow-up, CRM, booking and other business workflows.";
-
-      }
-
-      if (
-        text.includes("price") ||
-        text.includes("cost")
-      ) {
-
-        return "Project pricing depends on the scope. Use the Start a Project form and tell us what you need so the project can be understood properly.";
-
-      }
-
-      if (
-        text.includes("contact") ||
-        text.includes("start") ||
-        text.includes("project")
-      ) {
-
-        return "You can start by using the project inquiry form. Tell us about your business and what you want to build.";
-
-      }
-
-      return "I'm currently a website demo assistant. Ask me about websites, e-commerce, AI automation, projects or pricing.";
-
-    }
-
-
-    chatForm.addEventListener(
-      "submit",
-      event => {
-
-        event.preventDefault();
-
-        const message =
-          chatInput.value.trim();
-
-        if (!message) {
-          return;
         }
+      );
 
-        addChatMessage(
-          message,
-          true
-        );
-
-        chatInput.value = "";
-
-        setTimeout(() => {
-
-          addChatMessage(
-            getDemoReply(message)
-          );
-
-        }, 350);
-
-      }
-    );
+    }
 
 
     /* =========================
-       SMOOTH CONTACT FALLBACK
+       CLOSE CHAT WHEN CLICKING OUTSIDE
     ========================= */
 
-    document.querySelectorAll(
-      'a[href="#contact"]'
-    ).forEach(link => {
+    document.addEventListener(
+      "click",
+      event => {
 
-      /*
-        If the link is not one of the modal
-        triggers, it will naturally scroll
-        to the contact section.
-      */
+        if (
+          !chatBox ||
+          !chatButton
+        ) {
+          return;
+        }
 
-    });
+
+        if (
+          !chatBox.contains(event.target) &&
+          !chatButton.contains(event.target)
+        ) {
+
+          chatBox.classList.remove("active");
+
+        }
+
+      }
+    );
 
   </script>
 
